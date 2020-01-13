@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+*.log
+RELEASE_NOTE*.md
+.vscode

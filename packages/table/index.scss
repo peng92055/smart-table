@@ -1,0 +1,132 @@
+.smart-table {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  background-color: #fff;
+  font-size: 14px;
+  color: #606266;
+  border: 1px solid #EBEEF5;
+  border-right: none;
+  border-bottom: none;
+  table {
+    border-spacing: 0;
+    border: 0;
+  }
+  thead {
+    color: #909399;
+    font-weight: 500;
+    background: #F5F7FA;
+  }
+  th {
+    user-select: none;
+    overflow: hidden;
+    &[sortable] {
+      cursor: pointer;
+      :after {
+        margin-left: 5px;
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAAR5JREFUKBVjYKA7+P//P/OBo2dmHzx6rgab5YzIgseOPeb8/e/Vyv8M/33B4owM0+2tjHMYGRn/wdTBNRw7dlXo9/8fm4E2WMEkQTQjA+N6OWmhKEVFxR8QPpA8eOqyLMPvXzuBijVBgugAaMNhPi4mP0NDww8sIMn/f35aMP1nnA00DV0thP+fgeHz93/mQM5O7ArwiIKNPHDkjCMTEwM/HnUM//4zvXSwNjoOdhIzK9O7f7//LQXaLIlNE9DUW+zMjO4gObijjx8/r/Dr79+dQE1qyJoYGRlOcbMzeJuYmLwBiTPBJC0tDR9wczBYgxTAxIDsbUDFjjDFIHG4DTBFFy9e5P7w+c/q/4wML+2tjFKBQfoHJoeTBiUPXJIAbjheeFXAZxsAAAAASUVORK5CYII=');
+      }
+      &.desc {
+        :after {
+          content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAASdJREFUKBVjYKA7+P//P/OBo2dmHzx6rgab5YzIgseOPeb8/e/Vyv8M/33B4owM0+2tjHMYGRn/wdTBNRw7dlXo9/8fm4E2WMEkQTQjA+N6OWmhKEVFxR8QPpA8eOqyLMPvXzuBijVBgugAaMNhPi4mP0NDww8sIMn/f35aMP1nnA00DV0thP+fgeHz93/mQM5O7ArwiIKNdF7435HhHwM/HnUMDEwML/fGMx4HO+kfE8O7//8YljL8Z5DEpomRkeEW+z8Gd5AcE4jYH8t4kYOBwQokAeIjA6DYKR52BusdiYwPQOIovvRd9l/ky0+Grf//M5iBJRkZtvGIMIRu9mX8BuKDAIoGkIDbov/cv/4wrAbKvHRQYEhtcGT8AxLHC0JX/WfGpQAAJIlcYMXwsAoAAAAASUVORK5CYII=');
+        }
+      }
+      &.asc {
+        :after {
+          content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAARlJREFUKBVjYKA7aPj/n8lx/v+pQFyFzXJGZEHPbf/Zf7xkWPr/P0MwSJyRkWGqfQJDXgMj4z+YOrgGl1X/+f9+Ydj4n4HBHiYJ1bSWQ5whersX408wH0S4Lv8v9ecHw3agyXogPjoAmnqQmYfBf08Y40cWkOSfnww2DIwMS4FOWIquGMb/+5XBGsjeBuMTTYP9cODIGUcmJgZ+fLr+/Wd66WBtdBzsJGZWpnf/fv9bCvSwJDZNQFNvsTMzuoPk4KF0/Ph5hV9//+4EalJD1gT01yludgZvExOTNyBxJpikpaXhA24OBmuQApgYkL0NqNgRphgkDrcBpujixYvcHz7/Wf2fkeGlvZVRKiMj4x+YHE76////zLgkATPDVMggLp6aAAAAAElFTkSuQmCC');
+        }
+      }
+    }
+  }
+  td,
+  th {
+    padding: 12px 0;
+    min-width: 50px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid #EBEEF5;
+    border-right: 1px solid #EBEEF5;
+    &.is-hidden>* {
+      visibility: hidden;
+    }
+  }
+  .cell {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  th>.cell {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+  .smart-table_body,
+  .smart-table_footer,
+  .smart-table_header {
+    table-layout: fixed;
+    border-collapse: separate;
+    background: #fff;
+  }
+  .smart-table_header-wrapper {
+    overflow: hidden;
+  }
+  .smart-table_body-wrapper {
+    overflow: scroll;
+  }
+  .smart-table_fixed,
+  .smart-table_fixed-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .12);
+  }
+  .smart-table_fixed-right {
+    top: 0;
+    left: auto;
+    right: 0;
+    .smart-table_fixed-body-wrapper,
+    .smart-table_fixed-footer-wrapper,
+    .smart-table_fixed-header-wrapper {
+      left: auto;
+      right: 0;
+    }
+  }
+  .smart-table_fixed-right-patch {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    background-color: #F5F7FA;
+  }
+  .smart-table_fixed-header-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+  }
+  .smart-table_fixed-body-wrapper {
+    position: absolute;
+    left: 0;
+    top: 37px;
+    overflow: hidden;
+    z-index: 3;
+  }
+}

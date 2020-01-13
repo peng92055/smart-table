@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Smart Example</title>
+
+  <style>
+    body {
+      padding: 50px 20px;
+    }
+
+    .title {
+      text-align: center;
+      padding: 30px 0;
+      color: #4acccc;
+    }
+
+    .smart-table {
+      margin: 50px 0px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="title">Smart Table Example</h1>
+
+  <!--   smart table example start -->
+  <div class="smart-table" id="smartTable1">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1" rowspan="3" fixed sortable="number">
+            <div class="cell">Id</div>
+          </th>
+          <th colspan="1" rowspan="3" sortable fixed>
+            <div class="cell">日期</div>
+          </th>
+          <th colspan="5" rowspan="1" sortable>
+            <div class="cell">配送信息</div>
+          </th>
+          <th colspan="1" rowspan="3" fixed>
+            <div class="cell">操作</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="2" sortable>
+            <div class="cell">姓名</div>
+          </th>
+          <th colspan="4" rowspan="1" sortable>
+            <div class="cell">地址</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="1">
+            <div class="cell">省份</div>
+          </th>
+          <th colspan="1" rowspan="1">
+            <div class="cell">市区</div>
+          </th>
+          <th colspan="1" rowspan="1">
+            <div class="cell">地址</div>
+          </th>
+          <th colspan="1" rowspan="1" sortable>
+            <div class="cell">邮编</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="cell">11</div>
+          </td>
+          <td>
+            <div class="cell">2016-05-02</div>
+          </td>
+          <td>
+            <div class="cell">王小虎2</div>
+          </td>
+          <td>
+            <div class="cell">上海2</div>
+          </td>
+          <td>
+            <div class="cell">普陀区2</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄2</div>
+          </td>
+          <td>
+            <div class="cell">200332</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看2</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">2</div>
+          </td>
+          <td>
+            <div class="cell">2016-05-03</div>
+          </td>
+          <td>
+            <div class="cell">上小虎3</div>
+          </td>
+          <td>
+            <div class="cell">上海3</div>
+          </td>
+          <td>
+            <div class="cell">普陀区3</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄3</div>
+          </td>
+          <td>
+            <div class="cell">200333</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看3</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-01-03</div>
+          </td>
+          <td>
+            <div class="cell">小小虎1</div>
+          </td>
+          <td>
+            <div class="cell">上海1</div>
+          </td>
+          <td>
+            <div class="cell">普陀区1</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄1</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看1</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">5</div>
+          </td>
+          <td>
+            <div class="cell">2016-05-04</div>
+          </td>
+          <td>
+            <div class="cell">王小虎4</div>
+          </td>
+          <td>
+            <div class="cell">上海4</div>
+          </td>
+          <td>
+            <div class="cell">普陀区4</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄4</div>
+          </td>
+          <td>
+            <div class="cell">200334</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看4</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-01-03</div>
+          </td>
+          <td>
+            <div class="cell">小小虎1</div>
+          </td>
+          <td>
+            <div class="cell">上海1</div>
+          </td>
+          <td>
+            <div class="cell">普陀区1</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄1</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看1</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">5</div>
+          </td>
+          <td>
+            <div class="cell">2016-05-04</div>
+          </td>
+          <td>
+            <div class="cell">王小虎4</div>
+          </td>
+          <td>
+            <div class="cell">上海4</div>
+          </td>
+          <td>
+            <div class="cell">普陀区4</div>
+          </td>
+          <td>
+            <div class="cell">上海市普陀区金沙江路 1518 弄4</div>
+          </td>
+          <td>
+            <div class="cell">200334</div>
+          </td>
+          <td>
+            <div class="cell"><a href="#">查看4</a></div>
+          </td>
+        </tr>
+      </tbody>
+    </table style="width: 100%">
+  </div>
+  <!--   smart table example end -->
+  <!--   smart table example start -->
+  <div class="smart-table" id="smartTable2">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1" rowspan="3" fixed sortable>
+            <div class="cell">Id</div>
+          </th>
+          <th colspan="2" rowspan="1">
+            <div class="cell">详细</div>
+          </th>
+          <th colspan="4" rowspan="1">
+            <div class="cell">配送信息</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="2" sortable>
+            <div class="cell">日期</div>
+          </th>
+          <th colspan="1" rowspan="2">
+            <div class="cell">姓名</div>
+          </th>
+          <th colspan="4" rowspan="1">
+            <div class="cell">地址</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="1">
+            <div class="cell">省份</div>
+          </th>
+          <th colspan="1" rowspan="1" sortable>
+            <div class="cell">市区</div>
+          </th>
+          <th colspan="1" rowspan="1">
+            <div class="cell">地址</div>
+          </th>
+          <th colspan="1" rowspan="1" sortable>
+            <div class="cell">邮编</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="cell">12</div>
+          </td>
+          <td>
+            <div class="cell">2016-01-03</div>
+          </td>
+          <td>
+            <div class="cell">1王小虎</div>
+          </td>
+          <td>
+            <div class="cell">1上海</div>
+          </td>
+          <td>
+            <div class="cell">2普陀区</div>
+          </td>
+          <td>
+            <div class="cell">3上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-02-03</div>
+          </td>
+          <td>
+            <div class="cell">2王小虎</div>
+          </td>
+          <td>
+            <div class="cell">3上海</div>
+          </td>
+          <td>
+            <div class="cell">4普陀区</div>
+          </td>
+          <td>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">14</div>
+          </td>
+          <td>
+            <div class="cell">2016-03-03</div>
+          </td>
+          <td>
+            <div class="cell">3王小虎</div>
+          </td>
+          <td>
+            <div class="cell">4上海</div>
+          </td>
+          <td>
+            <div class="cell">1普陀区</div>
+          </td>
+          <td>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr unsort>
+          <td>
+            <div class="cell">15</div>
+          </td>
+          <td>
+            <div class="cell">2016-04-03</div>
+          </td>
+          <td>
+            <div class="cell">5王小虎</div>
+          </td>
+          <td>
+            <div class="cell">6上海</div>
+          </td>
+          <td>
+            <div class="cell">7普陀区</div>
+          </td>
+          <td>
+            <div class="cell">8上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="smart-table" id="smartTable3">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1" rowspan="3" fixed sortable>
+            <div class="cell">Id</div>
+          </th>
+          <th colspan="2" rowspan="1">
+            <div class="cell">详细</div>
+          </th>
+          <th colspan="4" rowspan="1">
+            <div class="cell">配送信息</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="2" sortable>
+            <div class="cell">日期</div>
+          </th>
+          <th colspan="1" rowspan="2">
+            <div class="cell">姓名</div>
+          </th>
+          <th colspan="4" rowspan="1">
+            <div class="cell">地址</div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" rowspan="1">
+            <div class="cell">省份</div>
+          </th>
+          <th colspan="1" rowspan="1" sortable>
+            <div class="cell">市区</div>
+          </th>
+          <th colspan="1" rowspan="1">
+            <div class="cell">地址</div>
+          </th>
+          <th colspan="1" rowspan="1" sortable>
+            <div class="cell">邮编</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="cell">12</div>
+          </td>
+          <td>
+            <div class="cell">2016-01-03</div>
+          </td>
+          <td>
+            <div class="cell">1王小虎</div>
+          </td>
+          <td>
+            <div class="cell">1上海</div>
+          </td>
+          <td>
+            <div class="cell">2普陀区</div>
+          </td>
+          <td>
+            <div class="cell">3上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-02-03</div>
+          </td>
+          <td>
+            <div class="cell">2王小虎</div>
+          </td>
+          <td>
+            <div class="cell">3上海</div>
+          </td>
+          <td>
+            <div class="cell">4普陀区</div>
+          </td>
+          <td>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">14</div>
+          </td>
+          <td>
+            <div class="cell">2016-03-03</div>
+          </td>
+          <td>
+            <div class="cell">3王小虎</div>
+          </td>
+          <td>
+            <div class="cell">4上海</div>
+          </td>
+          <td>
+            <div class="cell">1普陀区</div>
+          </td>
+          <td>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr unsort>
+          <td colspan="5">
+            <div class="cell">合计</div>
+          </td>
+          <td>
+            <div class="cell">888888</div>
+          </td>
+          <td>
+            <div class="cell">999999</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--   smart table example end -->
+  <script>
+    new SmartUI.Table({
+      selector: '#smartTable1',
+      tableHeight: 300
+    })
+    new SmartUI.Table({
+      selector: '#smartTable2',
+      tableHeight: function () {
+        return 300
+      }
+    })
+    new SmartUI.Table({
+      selector: '#smartTable3'
+    })
+  </script>
+
+</body>
+
+</html>

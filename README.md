@@ -36,7 +36,7 @@ npm run build
 ### 使用方法
 引入
 ```
-  <script type="text/javascript" src="smartUtils.853cd440.js"></script>
+  <script type="text/javascript" src="smartUtils.[chunkhash].js"></script>
 ```
 使用
 ```

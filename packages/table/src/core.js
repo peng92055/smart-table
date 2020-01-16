@@ -11,7 +11,7 @@ import {
   replaceColGroup
 } from './utils';
 
-export default function initMixin (Table) {
+export default function initMixin(Table) {
   Table.prototype._init = function (options = {}) {
     if (!options.selector) {
       console.error("Smart Table init need a selector")
@@ -28,6 +28,9 @@ export default function initMixin (Table) {
 
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
+    if (table.hasAttribute("stripe")) {
+      tbody.classList.add("stripe")
+    }
 
     table.style.width = "100%";
 
@@ -85,7 +88,7 @@ export default function initMixin (Table) {
   }
 }
 
-function rollupFixed (vm, theadModel, tbodyModel) {
+function rollupFixed(vm, theadModel, tbodyModel) {
   const {
     fixedLeft,
     fixedRight
@@ -172,7 +175,7 @@ function rollupFixed (vm, theadModel, tbodyModel) {
 }
 
 //根据表格中的tbody第一行 查出每列的宽度并记录
-function getColgroup (table) {
+function getColgroup(table) {
   let arr = [];
   const columns = table.querySelector("tbody tr").querySelectorAll("td");
   columns.forEach(column => {
@@ -189,7 +192,7 @@ function getColgroup (table) {
   return arr;
 }
 
-function bindEvents (vm) {
+function bindEvents(vm) {
   vm.$tbodyWrapper.addEventListener("scroll", () => syncPostion(vm), {
     passive: true
   })
@@ -232,7 +235,7 @@ function bindEvents (vm) {
   })
 }
 
-function replaceFixedColGroup (vm, selector, newTableWidth) {
+function replaceFixedColGroup(vm, selector, newTableWidth) {
   if (selector) {
     let fixedHeader = selector.querySelector('.smart-table_header');
     let fixedBody = selector.querySelector('.smart-table_body');
@@ -249,7 +252,7 @@ function replaceFixedColGroup (vm, selector, newTableWidth) {
   }
 }
 
-function syncPostion (vm) {
+function syncPostion(vm) {
   throttle(20, () => {
     vm.$theadWrapper.scrollLeft = vm.$tbodyWrapper.scrollLeft;
     if (vm.$fixedLeft) {
@@ -261,14 +264,14 @@ function syncPostion (vm) {
   })()
 }
 
-function initSortEvent (vm) {
-  let els = Array.from(vm.$root.querySelectorAll("th[sortable"));
+function initSortEvent(vm) {
+  let els = Array.from(vm.$root.querySelectorAll("th[sort"));
   if (els.length === 0) return;
   els.forEach(el => {
     el.addEventListener("click", $event => {
       $event.stopPropagation();
       let sortType = "ASC";
-      let sortOrder = el.getAttribute("sortable") || "string";
+      let sortOrder = el.getAttribute("sort") || "string";
       if (el.classList.contains("asc")) {
         el.classList.remove("asc");
         el.classList.add("desc");
@@ -288,7 +291,7 @@ function initSortEvent (vm) {
   })
 }
 
-function initProps (thead) {
+function initProps(thead) {
   let props = {};
   //创建表头单元格二维数组
   let shapes = [];
@@ -302,7 +305,7 @@ function initProps (thead) {
       let insertIndex = getEmptyIndexInArray(shape) || shape.length;
       shape[insertIndex] = column;
 
-      if (column.hasAttribute("sortable")) {
+      if (column.hasAttribute("sort")) {
         column.setAttribute("sortkey", "field-" + insertIndex);
       }
 
@@ -329,7 +332,7 @@ function initProps (thead) {
   return props;
 }
 
-function initFixed (thead, vm) {
+function initFixed(thead, vm) {
   let {
     colgroup,
     props
@@ -387,7 +390,7 @@ function initFixed (thead, vm) {
   props.fixedRight = fixedRight;
 }
 
-function initData (vm, tbody) {
+function initData(vm, tbody) {
   let fixedLeftRows = vm.$fixedLeft && vm.$fixedLeft.querySelectorAll("tbody tr");
   let fixedRightRows = vm.$fixedRight && vm.$fixedRight.querySelectorAll("tbody tr");
   let data = [];

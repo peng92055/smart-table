@@ -26,10 +26,15 @@
       background: #F5F7FA;
     }
   }
+  tbody.stripe {
+    tr:nth-child(2n) {
+      background-color: #F5F7FA;
+    }
+  }
   th {
     user-select: none;
     overflow: hidden;
-    &[sortable] {
+    &[sort] {
       cursor: pointer;
       :after {
         margin-left: 5px;
@@ -103,7 +108,7 @@
     left: 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .12);
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, .08);
   }
   .smart-table_fixed-right {
     top: 0;
@@ -136,6 +141,6 @@
     z-index: 3;
   }
   .smart-table_hover-tr {
-    background-color: #f8fbff;
+    background-color: #f0f5fd !important;
   }
 }

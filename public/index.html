@@ -18,41 +18,28 @@
       color: #4acccc;
     }
 
-    .repo-link {
-      font-size: 16px;
-      color: #409eff;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
     .smart-table {
       margin: 50px 0px;
-    }
-
-    .smart-table a {
-      color: #409eff;
     }
   </style>
 </head>
 
 <body>
 
-  <h1 class="title">Smart Table Example<a href="https://github.com/peng92055/smart-table" target="_blank"
-      rel="noopener noreferrer" class="repo-link">
-      GitHub</a></h1>
+  <h1 class="title">Smart Table Example</h1>
 
   <!--   smart table example start -->
   <div class="smart-table" id="smartTable1">
     <table>
       <thead>
         <tr>
-          <th colspan="1" rowspan="3" fixed sortable="number">
+          <th colspan="1" rowspan="3" fixed sort="number">
             <div class="cell">Id</div>
           </th>
-          <th colspan="1" rowspan="3" sortable fixed>
+          <th colspan="1" rowspan="3" sort fixed>
             <div class="cell">日期</div>
           </th>
-          <th colspan="5" rowspan="1" sortable>
+          <th colspan="5" rowspan="1" sort>
             <div class="cell">配送信息</div>
           </th>
           <th colspan="1" rowspan="3" fixed>
@@ -60,10 +47,10 @@
           </th>
         </tr>
         <tr>
-          <th colspan="1" rowspan="2" sortable>
+          <th colspan="1" rowspan="2" sort>
             <div class="cell">姓名</div>
           </th>
-          <th colspan="4" rowspan="1" sortable>
+          <th colspan="4" rowspan="1" sort>
             <div class="cell">地址</div>
           </th>
         </tr>
@@ -77,7 +64,7 @@
           <th colspan="1" rowspan="1">
             <div class="cell">地址</div>
           </th>
-          <th colspan="1" rowspan="1" sortable>
+          <th colspan="1" rowspan="1" sort>
             <div class="cell">邮编</div>
           </th>
         </tr>
@@ -100,7 +87,7 @@
             <div class="cell">普陀区2</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心2</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄2</div>
           </td>
           <td>
             <div class="cell">200332</div>
@@ -126,7 +113,7 @@
             <div class="cell">普陀区3</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心3</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄3</div>
           </td>
           <td>
             <div class="cell">200333</div>
@@ -152,7 +139,7 @@
             <div class="cell">普陀区1</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心1</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄1</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -178,7 +165,7 @@
             <div class="cell">普陀区4</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心4</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄4</div>
           </td>
           <td>
             <div class="cell">200334</div>
@@ -204,7 +191,7 @@
             <div class="cell">普陀区1</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心1</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄1</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -230,7 +217,7 @@
             <div class="cell">普陀区4</div>
           </td>
           <td>
-            <div class="cell">上海市长宁区古北财富中心4</div>
+            <div class="cell">上海市普陀区金沙江路 1518 弄4</div>
           </td>
           <td>
             <div class="cell">200334</div>
@@ -245,10 +232,10 @@
   <!--   smart table example end -->
   <!--   smart table example start -->
   <div class="smart-table" id="smartTable2">
-    <table>
+    <table stripe>
       <thead>
         <tr>
-          <th colspan="1" rowspan="3" fixed sortable>
+          <th colspan="1" rowspan="3" fixed sort>
             <div class="cell">Id</div>
           </th>
           <th colspan="2" rowspan="1">
@@ -259,7 +246,7 @@
           </th>
         </tr>
         <tr>
-          <th colspan="1" rowspan="2" sortable>
+          <th colspan="1" rowspan="2" sort>
             <div class="cell">日期</div>
           </th>
           <th colspan="1" rowspan="2">
@@ -273,7 +260,7 @@
           <th colspan="1" rowspan="1">
             <div class="cell">省份</div>
           </th>
-          <th colspan="1" rowspan="1" sortable>
+          <th colspan="1" rowspan="1" sort>
             <div class="cell">市区</div>
           </th>
           <th colspan="1" rowspan="1">
@@ -302,7 +289,7 @@
             <div class="cell">2普陀区</div>
           </td>
           <td>
-            <div class="cell">3上海市长宁区古北财富中心</div>
+            <div class="cell">3上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -325,7 +312,7 @@
             <div class="cell">4普陀区</div>
           </td>
           <td>
-            <div class="cell">2上海市长宁区古北财富中心</div>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -348,7 +335,99 @@
             <div class="cell">1普陀区</div>
           </td>
           <td>
-            <div class="cell">6上海市长宁区古北财富中心</div>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-02-03</div>
+          </td>
+          <td>
+            <div class="cell">2王小虎</div>
+          </td>
+          <td>
+            <div class="cell">3上海</div>
+          </td>
+          <td>
+            <div class="cell">4普陀区</div>
+          </td>
+          <td>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">14</div>
+          </td>
+          <td>
+            <div class="cell">2016-03-03</div>
+          </td>
+          <td>
+            <div class="cell">3王小虎</div>
+          </td>
+          <td>
+            <div class="cell">4上海</div>
+          </td>
+          <td>
+            <div class="cell">1普陀区</div>
+          </td>
+          <td>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">13</div>
+          </td>
+          <td>
+            <div class="cell">2016-02-03</div>
+          </td>
+          <td>
+            <div class="cell">2王小虎</div>
+          </td>
+          <td>
+            <div class="cell">3上海</div>
+          </td>
+          <td>
+            <div class="cell">4普陀区</div>
+          </td>
+          <td>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
+          </td>
+          <td>
+            <div class="cell">200331</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cell">14</div>
+          </td>
+          <td>
+            <div class="cell">2016-03-03</div>
+          </td>
+          <td>
+            <div class="cell">3王小虎</div>
+          </td>
+          <td>
+            <div class="cell">4上海</div>
+          </td>
+          <td>
+            <div class="cell">1普陀区</div>
+          </td>
+          <td>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -371,7 +450,7 @@
             <div class="cell">7普陀区</div>
           </td>
           <td>
-            <div class="cell">8上海市长宁区古北财富中心</div>
+            <div class="cell">8上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -385,7 +464,7 @@
     <table>
       <thead>
         <tr>
-          <th colspan="1" rowspan="3" fixed sortable>
+          <th colspan="1" rowspan="3" fixed sort>
             <div class="cell">Id</div>
           </th>
           <th colspan="2" rowspan="1">
@@ -396,7 +475,7 @@
           </th>
         </tr>
         <tr>
-          <th colspan="1" rowspan="2" sortable>
+          <th colspan="1" rowspan="2" sort>
             <div class="cell">日期</div>
           </th>
           <th colspan="1" rowspan="2">
@@ -410,23 +489,23 @@
           <th colspan="1" rowspan="1">
             <div class="cell">省份</div>
           </th>
-          <th colspan="1" rowspan="1" sortable>
+          <th colspan="1" rowspan="1" sort>
             <div class="cell">市区</div>
           </th>
           <th colspan="1" rowspan="1">
             <div class="cell">地址</div>
           </th>
-          <th colspan="1" rowspan="1" sortable>
+          <th colspan="1" rowspan="1" sort>
             <div class="cell">邮编</div>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>
+          <td rowspan="2">
             <div class="cell">12</div>
           </td>
-          <td>
+          <td rowspan="2">
             <div class="cell">2016-01-03</div>
           </td>
           <td>
@@ -439,7 +518,7 @@
             <div class="cell">2普陀区</div>
           </td>
           <td>
-            <div class="cell">3上海市长宁区古北财富中心</div>
+            <div class="cell">3上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -447,13 +526,7 @@
         </tr>
         <tr>
           <td>
-            <div class="cell">13</div>
-          </td>
-          <td>
             <div class="cell">2016-02-03</div>
-          </td>
-          <td>
-            <div class="cell">2王小虎</div>
           </td>
           <td>
             <div class="cell">3上海</div>
@@ -462,7 +535,7 @@
             <div class="cell">4普陀区</div>
           </td>
           <td>
-            <div class="cell">2上海市长宁区古北财富中心</div>
+            <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>
@@ -485,7 +558,7 @@
             <div class="cell">1普陀区</div>
           </td>
           <td>
-            <div class="cell">6上海市长宁区古北财富中心</div>
+            <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
           </td>
           <td>
             <div class="cell">200331</div>

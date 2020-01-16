@@ -15,10 +15,16 @@
     border-spacing: 0;
     border: 0;
   }
+  tr {
+    transition: background-color .25s ease;
+  }
   thead {
     color: #909399;
     font-weight: 500;
     background: #F5F7FA;
+    tr {
+      background: #F5F7FA;
+    }
   }
   th {
     user-select: none;
@@ -128,5 +134,8 @@
     top: 37px;
     overflow: hidden;
     z-index: 3;
+  }
+  .smart-table_hover-tr {
+    background-color: #f8fbff;
   }
 }

@@ -6,10 +6,12 @@ import {
   getEmptyIndexInArray,
   getIntByAttr,
   throttle,
-  isWindows
+  debounce,
+  isWindows,
+  replaceColGroup
 } from './utils';
 
-export default function initMixin(Table) {
+export default function initMixin (Table) {
   Table.prototype._init = function (options = {}) {
     if (!options.selector) {
       console.error("Smart Table init need a selector")
@@ -41,6 +43,7 @@ export default function initMixin(Table) {
       theadHeight: theadHeight,
       tbodyHeight: customHeight - theadHeight,
       tabelWidth: table.offsetWidth,
+      wrapperWidth: table.offsetWidth,
       tableHeight: customHeight,
       wrapperHeigth: theadHeight + tbodyHeight
     }
@@ -82,7 +85,7 @@ export default function initMixin(Table) {
   }
 }
 
-function rollupFixed(vm, theadModel, tbodyModel) {
+function rollupFixed (vm, theadModel, tbodyModel) {
   const {
     fixedLeft,
     fixedRight
@@ -169,7 +172,7 @@ function rollupFixed(vm, theadModel, tbodyModel) {
 }
 
 //根据表格中的tbody第一行 查出每列的宽度并记录
-function getColgroup(table) {
+function getColgroup (table) {
   let arr = [];
   const columns = table.querySelector("tbody tr").querySelectorAll("td");
   columns.forEach(column => {
@@ -186,16 +189,67 @@ function getColgroup(table) {
   return arr;
 }
 
-function bindEvents(vm) {
+function bindEvents (vm) {
   vm.$tbodyWrapper.addEventListener("scroll", () => syncPostion(vm), {
     passive: true
   })
-  // window.addEventListener("resize", function () {
-  //   console.log('resize:::;', vm.$options.selector)
-  // })
+  window.addEventListener("resize", debounce(600, () => {
+    let table = vm.$root;
+    let oldWrapperWidth = vm.size.wrapperWidth;
+    let oldTableWidth = vm.size.tabelWidth;
+    let newWrapperWidth = table.offsetWidth;
+    let newTableWidth = parseInt(oldTableWidth * (newWrapperWidth / oldWrapperWidth));
+    let headerWrapper = vm.$theadWrapper.querySelector('.smart-table_header');
+    let bodyWrapper = vm.$tbodyWrapper.querySelector('.smart-table_body');
+    vm.colgroup.forEach(function (item, index) {
+      vm.colgroup[index] = parseInt(newTableWidth * (item / oldTableWidth)) + 1
+    })
+    vm.size.wrapperWidth = newWrapperWidth;
+    vm.size.tabelWidth = newTableWidth;
+    headerWrapper.style.width = newTableWidth + 'px';
+    bodyWrapper.style.width = newTableWidth + 'px';
+    // 替换colgroup
+    replaceColGroup(vm, headerWrapper);
+    replaceColGroup(vm, bodyWrapper);
+    replaceFixedColGroup(vm, table.querySelector('.smart-table_fixed'), newTableWidth);
+    replaceFixedColGroup(vm, table.querySelector('.smart-table_fixed-right'), newTableWidth);
+  }))
+
+  let trs = vm.$tbodyWrapper.querySelectorAll('tr');
+  let fixedLeftTrs = vm.$root.querySelectorAll('.smart-table_fixed .smart-table_fixed-body-wrapper tr');
+  let fixedRightTrs = vm.$root.querySelectorAll('.smart-table_fixed-right .smart-table_fixed-body-wrapper tr');
+  trs.forEach((tr, trIndex) => {
+    tr.addEventListener('mouseenter', () => {
+      tr.className = 'smart-table_hover-tr';
+      if (fixedLeftTrs.length > 0) fixedLeftTrs[trIndex].className = 'smart-table_hover-tr';
+      if (fixedRightTrs.length > 0) fixedRightTrs[trIndex].className = 'smart-table_hover-tr';
+    })
+    tr.addEventListener('mouseleave', () => {
+      tr.className = ''
+      if (fixedLeftTrs.length > 0) fixedLeftTrs[trIndex].className = '';
+      if (fixedRightTrs.length > 0) fixedRightTrs[trIndex].className = '';
+    })
+  })
 }
 
-function syncPostion(vm) {
+function replaceFixedColGroup (vm, selector, newTableWidth) {
+  if (selector) {
+    let fixedHeader = selector.querySelector('.smart-table_header');
+    let fixedBody = selector.querySelector('.smart-table_body');
+    replaceColGroup(vm, fixedHeader);
+    replaceColGroup(vm, fixedBody);
+    const columns = selector.querySelector("tr").querySelectorAll("th");
+    let fixedWrapperWidth = 0;
+    columns.forEach(function (item, index) {
+      if (item.className != 'is-hidden') fixedWrapperWidth += vm.colgroup[index]
+    })
+    selector.style.width = fixedWrapperWidth + 'px';
+    fixedHeader.style.width = newTableWidth + 'px';
+    fixedBody.style.width = newTableWidth + 'px';
+  }
+}
+
+function syncPostion (vm) {
   throttle(20, () => {
     vm.$theadWrapper.scrollLeft = vm.$tbodyWrapper.scrollLeft;
     if (vm.$fixedLeft) {
@@ -207,7 +261,7 @@ function syncPostion(vm) {
   })()
 }
 
-function initSortEvent(vm) {
+function initSortEvent (vm) {
   let els = Array.from(vm.$root.querySelectorAll("th[sortable"));
   if (els.length === 0) return;
   els.forEach(el => {
@@ -234,7 +288,7 @@ function initSortEvent(vm) {
   })
 }
 
-function initProps(thead) {
+function initProps (thead) {
   let props = {};
   //创建表头单元格二维数组
   let shapes = [];
@@ -275,7 +329,7 @@ function initProps(thead) {
   return props;
 }
 
-function initFixed(thead, vm) {
+function initFixed (thead, vm) {
   let {
     colgroup,
     props
@@ -333,7 +387,7 @@ function initFixed(thead, vm) {
   props.fixedRight = fixedRight;
 }
 
-function initData(vm, tbody) {
+function initData (vm, tbody) {
   let fixedLeftRows = vm.$fixedLeft && vm.$fixedLeft.querySelectorAll("tbody tr");
   let fixedRightRows = vm.$fixedRight && vm.$fixedRight.querySelectorAll("tbody tr");
   let data = [];

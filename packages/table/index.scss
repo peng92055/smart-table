@@ -6,7 +6,6 @@
   width: 100%;
   max-width: 100%;
   background-color: #fff;
-  font-size: 14px;
   color: #606266;
   border: 1px solid #EBEEF5;
   border-right: none;
@@ -54,7 +53,7 @@
   }
   td,
   th {
-    padding: 12px 0;
+    padding: 6px 0;
     min-width: 50px;
     box-sizing: border-box;
     text-overflow: ellipsis;
@@ -63,8 +62,33 @@
     text-align: left;
     border-bottom: 1px solid #EBEEF5;
     border-right: 1px solid #EBEEF5;
+    text-align: center;
     &.is-hidden>* {
       visibility: hidden;
+    }
+  }
+  &.smart-table-custom-large {
+    td,
+    th {
+      padding: 12px 0;
+    }
+  }
+  &.smart-table-custom-middle {
+    td,
+    th {
+      padding: 10px 0;
+    }
+  }
+  &.smart-table-custom-left {
+    td,
+    th {
+      text-align: left;
+    }
+  }
+  &.smart-table-custom-right {
+    td,
+    th {
+      text-align: right;
     }
   }
   .cell {
@@ -75,8 +99,8 @@
     white-space: normal;
     word-break: break-all;
     line-height: 23px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 8px;
+    padding-right: 4px;
   }
   th>.cell {
     display: inline-block;
@@ -84,8 +108,8 @@
     box-sizing: border-box;
     position: relative;
     vertical-align: middle;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 4px;
     width: 100%;
   }
   .smart-table_body,

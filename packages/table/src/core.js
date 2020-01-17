@@ -19,12 +19,19 @@ export default function initMixin(Table) {
     const vm = this;
     vm.$options = options;
     vm.isWindows = isWindows();
-    vm.scrollHeightFit = vm.isWindows ? 17 : 0;
+    vm.scrollHeightFit = vm.isWindows ? (options.scrollbarWidth ? options.scrollbarWidth : 8) : 0;
 
     const root = options.selector && document.querySelector(String(options.selector).trim());
     if (!root) return;
     const table = root.querySelector("table");
     if (!table) return;
+
+    if (options.size) {
+      root.classList.add("smart-table-custom-" + options.size)
+    }
+    if (options.textAlign) {
+      root.classList.add("smart-table-custom-" + options.textAlign)
+    }
 
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
@@ -37,7 +44,7 @@ export default function initMixin(Table) {
     vm.$root = root;
 
     const theadHeight = thead.offsetHeight;
-    let customHeight = options.tableHeight || 400;
+    let customHeight = options.tableHeight || 500;
     customHeight = typeof customHeight === 'function' ? customHeight() : customHeight;
     customHeight = customHeight > theadHeight ? customHeight : (theadHeight + 100);
     const tbodyHeight = tbody.offsetHeight;
@@ -54,7 +61,7 @@ export default function initMixin(Table) {
     vm.props = initProps(thead);
 
     //获取colgroup数据数组
-    vm.colgroup = getColgroup(table);
+    vm.colgroup = getColgroup(thead, tbody, vm.props.theadLength);
     //根据头部列的二维数组 获取最小表格宽度
     vm.size.tabelWidth = table.style.width = vm.colgroup.reduce((total, num) => total + num)
     //初始化fixed元素及宽度
@@ -81,7 +88,7 @@ export default function initMixin(Table) {
 
     if (vm.isWindows) {
       let th = document.createElement("th");
-      th.setAttribute("width", "17");
+      th.setAttribute("width", vm.scrollHeightFit);
       th.setAttribute("rowspan", vm.props.shapes.length);
       thead.querySelector("tr").appendChild(th);
     }
@@ -166,7 +173,7 @@ function rollupFixed(vm, theadModel, tbodyModel) {
     if (vm.isWindows) {
       let rightPatch = document.createElement("div");
       rightPatch.className = "smart-table_fixed-right-patch";
-      rightPatch.style.width = "17px";
+      rightPatch.style.width = vm.scrollHeightFit + "px";
       rightPatch.style.height = vm.size.theadHeight + "px";
       vm.$root.appendChild(rightPatch)
     }
@@ -175,20 +182,31 @@ function rollupFixed(vm, theadModel, tbodyModel) {
 }
 
 //根据表格中的tbody第一行 查出每列的宽度并记录
-function getColgroup(table) {
+function getColgroup(thead, tbody, theadLength) {
   let arr = [];
-  const columns = table.querySelector("tbody tr").querySelectorAll("td");
-  columns.forEach(column => {
-    let width = column.offsetWidth;
-    if (width < 50) {
-      width = width + 30;
-    } else if (width >= 50 && width < 100) {
-      width = width + 50;
-    } else {
-      width = width + 60;
-    }
-    arr.push(width)
-  })
+  if (theadLength === 1) {
+    //单行
+    thead.querySelector("tr").querySelectorAll("th").forEach(column => {
+      let width = getIntByAttr(column, "width", 0);
+      if (width === 0) {
+        width = column.offsetWidth > 80 ? column.offsetWidth : 80;
+      }
+      arr.push(width)
+    })
+  } else {
+    //多行
+    tbody.querySelector("tr").querySelectorAll("td").forEach(column => {
+      let width = column.offsetWidth;
+      if (width < 50) {
+        width = width + 10;
+      } else if (width >= 50 && width < 100) {
+        width = width + 30;
+      } else {
+        width = width + 40;
+      }
+      arr.push(width)
+    })
+  }
   return arr;
 }
 
@@ -265,7 +283,7 @@ function syncPostion(vm) {
 }
 
 function initSortEvent(vm) {
-  let els = Array.from(vm.$root.querySelectorAll("th[sort"));
+  let els = Array.from(vm.$root.querySelectorAll("th[sort]"));
   if (els.length === 0) return;
   els.forEach(el => {
     el.addEventListener("click", $event => {
@@ -328,6 +346,7 @@ function initProps(thead) {
       shapes[index] = shape;
     })
   })
+  props.theadLength = rows.length;
   props.shapes = shapes;
   return props;
 }

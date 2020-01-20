@@ -56,9 +56,10 @@ npm run build
 ```
 API Demo
 ```
-<th colspan="1" rowspan="3" fixed sortable="number"></th>
-<th colspan="1" rowspan="3" sortable fixed></th>
-<th colspan="5" rowspan="1" sortable></th>
+<table stripe>
+<th colspan="1" rowspan="3" fixed sort="number"></th>
+<th colspan="1" rowspan="3" sort fixed></th>
+<th colspan="5" rowspan="1" sort></th>
 <th colspan="1" rowspan="3" fixed></th>
 <tr unsort></tr>
 ```

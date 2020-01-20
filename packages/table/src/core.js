@@ -19,7 +19,7 @@ export default function initMixin(Table) {
     const vm = this;
     vm.$options = options;
     vm.isWindows = isWindows();
-    vm.scrollHeightFit = vm.isWindows ? (options.scrollbarWidth ? options.scrollbarWidth : 8) : 0;
+    vm.scrollbarFit = options.scrollbarWidth ? options.scrollbarWidth : 8;
 
     const root = options.selector && document.querySelector(String(options.selector).trim());
     if (!root) return;
@@ -44,10 +44,10 @@ export default function initMixin(Table) {
     vm.$root = root;
 
     const theadHeight = thead.offsetHeight;
-    let customHeight = options.tableHeight || 500;
-    customHeight = typeof customHeight === 'function' ? customHeight() : customHeight;
+    const tableHeight = table.offsetHeight;
+    let customHeight = options.tableHeight;
+    customHeight = (typeof customHeight === 'function' ? customHeight() : customHeight) || tableHeight;
     customHeight = customHeight > theadHeight ? customHeight : (theadHeight + 100);
-    const tbodyHeight = tbody.offsetHeight;
     //获取table宽高
     vm.size = {
       theadHeight: theadHeight,
@@ -55,15 +55,20 @@ export default function initMixin(Table) {
       tabelWidth: table.offsetWidth,
       wrapperWidth: table.offsetWidth,
       tableHeight: customHeight,
-      wrapperHeigth: theadHeight + tbodyHeight
+      fixWrapperHeigth: tableHeight > customHeight ? customHeight : tableHeight
     }
+
     //初始化thead 并获取props
     vm.props = initProps(thead);
 
     //获取colgroup数据数组
     vm.colgroup = getColgroup(thead, tbody, vm.props.theadLength);
     //根据头部列的二维数组 获取最小表格宽度
-    vm.size.tabelWidth = table.style.width = vm.colgroup.reduce((total, num) => total + num)
+    vm.size.tabelWidth = table.style.width = vm.colgroup.reduce((total, num) => total + num);
+    //垂直方向是否有滚动条
+    vm.hasVerticalScroll = customHeight < table.offsetHeight;
+    //水平方向是否有滚动条
+    vm.hasHorizontalScroll = root.offsetWidth < vm.size.tabelWidth;
     //初始化fixed元素及宽度
     initFixed(thead, vm);
     //初始化table 拆分table的thead和tbody
@@ -86,9 +91,9 @@ export default function initMixin(Table) {
     initSortEvent(vm);
     bindEvents(vm);
 
-    if (vm.isWindows) {
+    if (vm.hasVerticalScroll) {
       let th = document.createElement("th");
-      th.setAttribute("width", vm.scrollHeightFit);
+      th.setAttribute("width", vm.scrollbarFit);
       th.setAttribute("rowspan", vm.props.shapes.length);
       thead.querySelector("tr").appendChild(th);
     }
@@ -127,13 +132,13 @@ function rollupFixed(vm, theadModel, tbodyModel) {
     })
     let bodyWrapper = createTabelWrapper("smart-table_fixed-body-wrapper", vm, "body", tbody);
     bodyWrapper.style.top = vm.size.theadHeight + "px";
-    bodyWrapper.style.height = (vm.size.tbodyHeight - vm.scrollHeightFit) + "px";
+    bodyWrapper.style.height = (vm.size.tbodyHeight - (vm.hasHorizontalScroll ? vm.scrollbarFit : 0)) + "px";
     let fixedContainer = document.createElement("div");
     fixedContainer.className = "smart-table_fixed";
     fixedContainer.appendChild(headerWrapper);
     fixedContainer.appendChild(bodyWrapper);
     fixedContainer.style.width = fixedLeft.width + "px";
-    fixedContainer.style.height = vm.size.wrapperHeigth + "px";
+    fixedContainer.style.height = (vm.size.fixWrapperHeigth - (vm.hasHorizontalScroll ? vm.scrollbarFit : 0)) + "px";
     vm.$root.appendChild(fixedContainer);
     vm.$fixedLeft = bodyWrapper;
   }
@@ -160,20 +165,20 @@ function rollupFixed(vm, theadModel, tbodyModel) {
     })
     let bodyWrapper = createTabelWrapper("smart-table_fixed-body-wrapper", vm, "body", tbody);
     bodyWrapper.style.top = vm.size.theadHeight + "px";
-    bodyWrapper.style.height = (vm.size.tbodyHeight - vm.scrollHeightFit) + "px";
+    bodyWrapper.style.height = (vm.size.tbodyHeight - (vm.hasHorizontalScroll ? vm.scrollbarFit : 0)) + "px";
     let fixedContainer = document.createElement("div");
     fixedContainer.className = "smart-table_fixed-right";
-    fixedContainer.style.right = vm.scrollHeightFit + "px";
+    fixedContainer.style.right = (vm.hasVerticalScroll ? vm.scrollbarFit : 0) + "px";
     fixedContainer.appendChild(headerWrapper);
     fixedContainer.appendChild(bodyWrapper);
     fixedContainer.style.width = fixedRight.width + "px";
-    fixedContainer.style.height = vm.size.wrapperHeigth + "px";
+    fixedContainer.style.height = (vm.size.fixWrapperHeigth - (vm.hasHorizontalScroll ? vm.scrollbarFit : 0)) + "px";
     vm.$root.appendChild(fixedContainer);
     vm.$fixedRight = bodyWrapper;
-    if (vm.isWindows) {
+    if (vm.hasVerticalScroll) {
       let rightPatch = document.createElement("div");
       rightPatch.className = "smart-table_fixed-right-patch";
-      rightPatch.style.width = vm.scrollHeightFit + "px";
+      rightPatch.style.width = vm.scrollbarFit + "px";
       rightPatch.style.height = vm.size.theadHeight + "px";
       vm.$root.appendChild(rightPatch)
     }

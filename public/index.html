@@ -269,6 +269,106 @@
           </tbody>
         </table>
       </div>
+      <div class="smart-table" id="smartTable11">
+        <table stripe>
+          <thead>
+            <tr>
+              <th colspan="1" rowspan="3" fixed sort>
+                <div class="cell">Id</div>
+              </th>
+              <th colspan="1" rowspan="2" width="200" fixed>
+                <div class="cell">日期</div>
+              </th>
+              <th colspan="1" rowspan="2" width="60" sort>
+                <div class="cell">姓名</div>
+              </th>
+              <th colspan="1" width="200" rowspan="1">
+                <div class="cell">省份</div>
+              </th>
+              <th colspan="1" rowspan="1" sort>
+                <div class="cell">市区</div>
+              </th>
+              <th colspan="1" rowspan="1">
+                <div class="cell">地址</div>
+              </th>
+              <th colspan="1" rowspan="1" fixed>
+                <div class="cell">邮编</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="cell">12</div>
+              </td>
+              <td>
+                <div class="cell">2016-01-03</div>
+              </td>
+              <td>
+                <div class="cell">1王小虎</div>
+              </td>
+              <td>
+                <div class="cell">1上海</div>
+              </td>
+              <td>
+                <div class="cell">2普陀区</div>
+              </td>
+              <td>
+                <div class="cell">3上海市普陀区金沙江路 1518 弄</div>
+              </td>
+              <td>
+                <div class="cell">200331</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="cell">13</div>
+              </td>
+              <td>
+                <div class="cell">2016-02-03</div>
+              </td>
+              <td>
+                <div class="cell">2王小虎</div>
+              </td>
+              <td>
+                <div class="cell">3上海</div>
+              </td>
+              <td>
+                <div class="cell">4普陀区</div>
+              </td>
+              <td>
+                <div class="cell">2上海市普陀区金沙江路 1518 弄</div>
+              </td>
+              <td>
+                <div class="cell">200331</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="cell">14</div>
+              </td>
+              <td>
+                <div class="cell">2016-03-03</div>
+              </td>
+              <td>
+                <div class="cell">3王小虎</div>
+              </td>
+              <td>
+                <div class="cell">4上海</div>
+              </td>
+              <td>
+                <div class="cell">1普陀区</div>
+              </td>
+              <td>
+                <div class="cell">6上海市普陀区金沙江路 1518 弄</div>
+              </td>
+              <td>
+                <div class="cell">200331</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <!--   smart table example start -->
       <div class="smart-table" id="smartTable2">
         <table>
@@ -825,26 +925,30 @@
   </div>
 
   <script>
-    new SmartUI.Table({
-      selector: '#smartTable1',
-      tableHeight: function () {
-        return 300
-      },
-    })
-    new SmartUI.Table({
-      selector: '#smartTable2',
-      tableHeight: 300,
-      textAlign: 'left',
-      size: 'middle',
-      scrollbarWidth: 17
-    })
-    new SmartUI.Table({
-      selector: '#smartTable3',
-      textAlign: 'right',
-      size: 'large'
-    })
-    new SmartUI.Table({
-      selector: '#smartTable4'
+    window.addEventListener('load', function () {
+      new SmartUI.Table({
+        selector: '#smartTable1',
+        tableHeight: function () {
+          return 300
+        },
+      })
+      new SmartUI.Table({
+        selector: '#smartTable11'
+      })
+      new SmartUI.Table({
+        selector: '#smartTable2',
+        tableHeight: 300,
+        textAlign: 'left',
+        size: 'middle'
+      })
+      new SmartUI.Table({
+        selector: '#smartTable3',
+        textAlign: 'right',
+        size: 'large'
+      })
+      new SmartUI.Table({
+        selector: '#smartTable4'
+      })
     })
   </script>
 

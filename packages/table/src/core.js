@@ -12,7 +12,7 @@ import {
 } from './utils';
 
 export default function initMixin(Table) {
-  Table.prototype._init = function (options = {}) {
+  Table.prototype._init = function(options = {}) {
     if (!options.selector) {
       console.error("Smart Table init need a selector")
     }
@@ -107,9 +107,9 @@ function rollupFixed(vm, theadModel, tbodyModel) {
   } = vm.props;
   let rootMinWidth = 320;
   vm.$root.querySelectorAll(".smart-table_body-wrapper").forEach(wrapper => {
-    wrapper.style.height = vm.size.tbodyHeight + "px";
-  })
-  //左边有固定列
+      wrapper.style.height = vm.size.tbodyHeight + "px";
+    })
+    //左边有固定列
   if (fixedLeft.thead.length > 0) {
     rootMinWidth = rootMinWidth > fixedLeft.width ? rootMinWidth : fixedLeft.width;
     //构建header
@@ -227,7 +227,7 @@ function bindEvents(vm) {
     let newTableWidth = parseInt(oldTableWidth * (newWrapperWidth / oldWrapperWidth));
     let headerWrapper = vm.$theadWrapper.querySelector('.smart-table_header');
     let bodyWrapper = vm.$tbodyWrapper.querySelector('.smart-table_body');
-    vm.colgroup.forEach(function (item, index) {
+    vm.colgroup.forEach(function(item, index) {
       vm.colgroup[index] = parseInt(newTableWidth * (item / oldTableWidth)) + 1
     })
     vm.size.wrapperWidth = newWrapperWidth;
@@ -266,7 +266,7 @@ function replaceFixedColGroup(vm, selector, newTableWidth) {
     replaceColGroup(vm, fixedBody);
     const columns = selector.querySelector("tr").querySelectorAll("th");
     let fixedWrapperWidth = 0;
-    columns.forEach(function (item, index) {
+    columns.forEach(function(item, index) {
       if (item.className != 'is-hidden') fixedWrapperWidth += vm.colgroup[index]
     })
     selector.style.width = fixedWrapperWidth + 'px';

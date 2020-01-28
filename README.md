@@ -40,18 +40,20 @@ npm run build
 ```
 使用
 ```
-  new SmartUI.Table({
-    selector: '#smartTable1',
-    tableHeight: 300
-  })
-  new SmartUI.Table({
-    selector: '#smartTable2',
-    tableHeight: function () {
-      return 300
-    }
-  })
-  new SmartUI.Table({
-    selector: '#smartTable3'
+  window.addEventListener('load', function () {
+    new SmartUI.Table({
+      selector: '#smartTable1',
+      tableHeight: 300
+    })
+    new SmartUI.Table({
+      selector: '#smartTable2',
+      tableHeight: function () {
+        return 300
+      }
+    })
+    new SmartUI.Table({
+      selector: '#smartTable3'
+    })
   })
 ```
 API Demo

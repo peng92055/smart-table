@@ -36,25 +36,19 @@ npm run build
 ### 使用方法
 引入
 ```
-  <script type="text/javascript" src="smartUtils.[chunkhash].js"></script>
+  <script type="text/javascript" src="smartTable.[chunkhash].js"></script>
 ```
 使用
 ```
-  window.addEventListener('load', function () {
-    new SmartUI.Table({
-      selector: '#smartTable1',
-      tableHeight: 300
+    new SmartTable({
+      selector: '#smartTable1'
     })
-    new SmartUI.Table({
+    new SmartTable({
       selector: '#smartTable2',
-      tableHeight: function () {
-        return 300
-      }
+      tableHeight: 300,
+      textAlign: 'left',
+      size: 'middle'
     })
-    new SmartUI.Table({
-      selector: '#smartTable3'
-    })
-  })
 ```
 API Demo
 ```

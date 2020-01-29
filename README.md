@@ -34,9 +34,9 @@ npm run build
 ```
 
 ### 使用方法
-引入
+引入 In browser:
 ```
-  <script type="text/javascript" src="smartTable.[chunkhash].js"></script>
+  <script type="text/javascript" src="./dist/smartTable.[chunkhash].js"></script>
 ```
 使用
 ```

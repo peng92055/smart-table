@@ -11,7 +11,7 @@
 
 -- 设计 --
 
-  框架内核借鉴虚拟Dom实现，元素排序移动采用React的Diff算法实现，保证元素的可重复使用。增加throttle保证体验。
+  框架内核借鉴虚拟Dom实现，元素排序移动采用React的Diff算法实现，保证元素的可重复使用。增加debounce及throttle保证体验。
 
 -- 优势 --
 
@@ -37,6 +37,8 @@ npm run build
 引入 In browser:
 ```
   <script type="text/javascript" src="./dist/smartTable.[chunkhash].js"></script>
+  或者使用七牛云空间的存储
+  <script type="text/javascript" src="http://q4uv9bkgj.bkt.clouddn.com/smartTable.26faa588.js"></script>
 ```
 使用
 ```

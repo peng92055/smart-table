@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  flex: 1;
   width: 100%;
   max-width: 100%;
   background-color: #fff;
@@ -54,17 +53,17 @@
     overflow: hidden;
     &[sort] {
       cursor: pointer;
-      :after {
+       :after {
         margin-left: 5px;
         content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAAR5JREFUKBVjYKA7+P//P/OBo2dmHzx6rgab5YzIgseOPeb8/e/Vyv8M/33B4owM0+2tjHMYGRn/wdTBNRw7dlXo9/8fm4E2WMEkQTQjA+N6OWmhKEVFxR8QPpA8eOqyLMPvXzuBijVBgugAaMNhPi4mP0NDww8sIMn/f35aMP1nnA00DV0thP+fgeHz93/mQM5O7ArwiIKNPHDkjCMTEwM/HnUM//4zvXSwNjoOdhIzK9O7f7//LQXaLIlNE9DUW+zMjO4gObijjx8/r/Dr79+dQE1qyJoYGRlOcbMzeJuYmLwBiTPBJC0tDR9wczBYgxTAxIDsbUDFjjDFIHG4DTBFFy9e5P7w+c/q/4wML+2tjFKBQfoHJoeTBiUPXJIAbjheeFXAZxsAAAAASUVORK5CYII=');
       }
       &.desc {
-        :after {
+         :after {
           content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAASdJREFUKBVjYKA7+P//P/OBo2dmHzx6rgab5YzIgseOPeb8/e/Vyv8M/33B4owM0+2tjHMYGRn/wdTBNRw7dlXo9/8fm4E2WMEkQTQjA+N6OWmhKEVFxR8QPpA8eOqyLMPvXzuBijVBgugAaMNhPi4mP0NDww8sIMn/f35aMP1nnA00DV0thP+fgeHz93/mQM5O7ArwiIKNdF7435HhHwM/HnUMDEwML/fGMx4HO+kfE8O7//8YljL8Z5DEpomRkeEW+z8Gd5AcE4jYH8t4kYOBwQokAeIjA6DYKR52BusdiYwPQOIovvRd9l/ky0+Grf//M5iBJRkZtvGIMIRu9mX8BuKDAIoGkIDbov/cv/4wrAbKvHRQYEhtcGT8AxLHC0JX/WfGpQAAJIlcYMXwsAoAAAAASUVORK5CYII=');
         }
       }
       &.asc {
-        :after {
+         :after {
           content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAYAAAAbvf3sAAAAAXNSR0IArs4c6QAAARlJREFUKBVjYKA7aPj/n8lx/v+pQFyFzXJGZEHPbf/Zf7xkWPr/P0MwSJyRkWGqfQJDXgMj4z+YOrgGl1X/+f9+Ydj4n4HBHiYJ1bSWQ5whersX408wH0S4Lv8v9ecHw3agyXogPjoAmnqQmYfBf08Y40cWkOSfnww2DIwMS4FOWIquGMb/+5XBGsjeBuMTTYP9cODIGUcmJgZ+fLr+/Wd66WBtdBzsJGZWpnf/fv9bCvSwJDZNQFNvsTMzuoPk4KF0/Ph5hV9//+4EalJD1gT01yludgZvExOTNyBxJpikpaXhA24OBmuQApgYkL0NqNgRphgkDrcBpujixYvcHz7/Wf2fkeGlvZVRKiMj4x+YHE76////zLgkATPDVMggLp6aAAAAAElFTkSuQmCC');
         }
       }
@@ -187,19 +186,19 @@
   .smart-table_hover-tr {
     background-color: #f0f5fd !important;
   }
-  ::-webkit-scrollbar {
+   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
     background-color: #e9edf4;
   }
-  ::-webkit-scrollbar-thumb {
+   ::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 2em;
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
     -o-border-radius: 2em;
   }
-  ::-webkit-scrollbar-thumb:hover {
+   ::-webkit-scrollbar-thumb:hover {
     background-color: #9bbbfa;
   }
 }

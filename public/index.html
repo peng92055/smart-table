@@ -30,6 +30,10 @@
       margin: 0;
     }
     
+    .api-wrap {
+      font-size: 13px;
+    }
+    
     .smart-table {
       margin: 20px 0px;
     }
@@ -63,10 +67,10 @@
               <th colspan="1" rowspan="2" width="200" fixed>
                 <div class="cell">日期</div>
               </th>
-              <th colspan="1" rowspan="2" width="80" sort>
+              <th colspan="1" rowspan="2" width="100" sort>
                 <div class="cell">姓名</div>
               </th>
-              <th colspan="1" width="200" rowspan="1">
+              <th colspan="1" width="100" rowspan="1">
                 <div class="cell">省份</div>
               </th>
               <th colspan="1" rowspan="1" sort>
@@ -472,10 +476,10 @@
   </div>
 
   <script>
-    new SmartUI.Table({
+    new SmartTable({
       selector: '#smartTable1'
     })
-    new SmartUI.Table({
+    new SmartTable({
       selector: '#smartTable2',
       tableHeight: 300,
       textAlign: 'left',

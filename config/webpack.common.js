@@ -25,7 +25,7 @@ module.exports = {
     }, ]
   },
   output: {
-    filename: 'smartUtils.[chunkhash:8].js',
+    filename: 'smartTable.[chunkhash:8].js',
     path: path.resolve(__dirname, '../dist')
   },
 }

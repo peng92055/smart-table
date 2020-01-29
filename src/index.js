@@ -1,5 +1,5 @@
-import Table from '../packages/table'
+import Table from '../lib'
 
-window.SmartUI = {
-  Table
-}
+(function(w) {
+  w.SmartTable = Table
+})(window)

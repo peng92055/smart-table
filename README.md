@@ -1,4 +1,4 @@
-# Smart Table 组件库
+# Smart Table 组件
 
 **专处理纯静态table固定头列及排序功能**
 
@@ -20,7 +20,65 @@
   - 性能高
 
 ## 体验
-可直接访问dist/index.html
+可直接访问https://peng92055.github.io/smart-table
+
+## Usage
+- 加载UI库
+```html
+  <script type="text/javascript" src="./dist/smartTable.[chunkhash].js"></script>
+  或者使用七牛云空间的存储
+  <script type="text/javascript" src="http://q4uv9bkgj.bkt.clouddn.com/smartTable.26faa588.js"></script>
+```
+- 输出静态HTML 表格基础属性需在服务端返回前指定<br>
+**规则：1、必须指定class为smart-table；2、th或td中必须有一层class为cell的div包裹**
+```html
+  <div class="smart-table" id="smartTable">
+      <table stripe>
+        <thead>
+          <tr>
+            <th fixed sort>
+              <div class="cell">Id</div>
+            </th>
+            ...
+        <tbody>
+          <tr>
+            <td>
+              <div class="cell">DD001</div>
+            </th>
+            ...
+          <tr unsort>
+            <td>
+              <div class="cell">合计</div>
+            </th>
+```
+- 初始化表格
+```javascript
+    new SmartTable({
+      selector: '#smartTable',
+      tableHeight: 300,
+      textAlign: 'left',
+      size: 'middle'
+    })
+```
+
+### Table Tags Attrs
+
+| Property          | Tag Position           | Description                                                       | 
+| :---------------- | :--------------------- | :---------------------------------------------------------------- |
+| stripe            | table                  | 表格是否需要斑马间隔色                                                | 
+| fixed             | thead -> tr -> th      | 是否固定该列                                                        |
+| sort              | thead -> tr -> th      | 是否对该列有排序功能（默认按照string排序，可指定为sort="number" ）        |
+| unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                        |
+
+
+### Options Object
+
+| Property              | Type               | Required    | Description                                 | Default       |
+| :---------------------| :----------------- | :---------- | :------------------------------------------ | :------------ |
+| selector              | string             | yes         | 需要初始化的表格元素                            |               |
+| tableHeight           | number or function | no          | 可指定表格的高度                               |               |
+| textAlign             | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
+| size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small        |
 
 
 ## 启动项目
@@ -31,33 +89,4 @@ npm run serve
 ## build 流程
 ```
 npm run build
-```
-
-### 使用方法
-引入 In browser:
-```
-  <script type="text/javascript" src="./dist/smartTable.[chunkhash].js"></script>
-  或者使用七牛云空间的存储
-  <script type="text/javascript" src="http://q4uv9bkgj.bkt.clouddn.com/smartTable.26faa588.js"></script>
-```
-使用
-```
-    new SmartTable({
-      selector: '#smartTable1'
-    })
-    new SmartTable({
-      selector: '#smartTable2',
-      tableHeight: 300,
-      textAlign: 'left',
-      size: 'middle'
-    })
-```
-API Demo
-```
-<table stripe>
-<th colspan="1" rowspan="3" fixed sort="number"></th>
-<th colspan="1" rowspan="3" sort fixed></th>
-<th colspan="5" rowspan="1" sort></th>
-<th colspan="1" rowspan="3" fixed></th>
-<tr unsort></tr>
 ```

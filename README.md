@@ -6,12 +6,12 @@
 
 -- 初衷 --
 
-  方便在服务端直接返回已经渲染好的table数据后，增加table的组件库功能（如头固定、左右列固定、排序功能）
-  此项目不依赖任何其他库，减少依赖
+  方便在服务端直接返回已经渲染好的table数据后，增加table的组件功能（如头固定、左右列固定、排序功能）
+  此项目不依赖任何其他库
 
 -- 设计 --
 
-  框架内核借鉴虚拟Dom实现，元素排序移动采用React的Diff算法实现，保证元素的可重复使用。增加debounce及throttle保证体验。
+  组件内核借鉴虚拟Dom实现，元素排序移动借鉴React的Diff算法实现，保证元素的可重复使用。增加debounce及throttle保证体验。
 
 -- 优势 --
 
@@ -30,7 +30,7 @@
   <script type="text/javascript" src="http://q4uv9bkgj.bkt.clouddn.com/smartTable.26faa588.js"></script>
 ```
 - 输出静态HTML 表格基础属性需在服务端返回前指定<br>
-**规则：1、必须指定class为smart-table；2、th或td中必须有一层class为cell的div包裹**
+**规则：1、必须指定class为smart-table；2、th或td中必须有一层class为cell的div包裹（后期迭代自动处理掉）**
 ```html
   <div class="smart-table" id="smartTable">
       <table stripe>
@@ -61,7 +61,7 @@
     })
 ```
 
-### Table Tags Attrs
+### Table Attributes
 
 | Property          | Tag Position           | Description                                                       | 
 | :---------------- | :--------------------- | :---------------------------------------------------------------- |
@@ -71,7 +71,7 @@
 | unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                        |
 
 
-### Options Object
+### Table Options
 
 | Property              | Type               | Required    | Description                                 | Default       |
 | :---------------------| :----------------- | :---------- | :------------------------------------------ | :------------ |

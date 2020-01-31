@@ -19,9 +19,9 @@
       a = t.attributes || {}; if (void 0 === a.nonce) { var o = r.nc;
       o && (a.nonce = o) } if (Object.keys(a).forEach((function(t) { e.setAttribute(t, a[t]) })), "function" == typeof t.insert) t.insert(e);
     else { var l = i(t.insert || "head"); if (!l) throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-      l.appendChild(e) } return e } var d, f = (d = [], function(t, e) { return d[t] = e, d.filter(Boolean).join("\n") });
+      l.appendChild(e) } return e } var d, c = (d = [], function(t, e) { return d[t] = e, d.filter(Boolean).join("\n") });
 
-  function c(t, e, r, a) { var o = r ? "" : a.css; if (t.styleSheet) t.styleSheet.cssText = f(e, o);
+  function f(t, e, r, a) { var o = r ? "" : a.css; if (t.styleSheet) t.styleSheet.cssText = c(e, o);
     else { var i = document.createTextNode(o),
         l = t.childNodes;
       l[e] && t.removeChild(l[e]), l.length ? t.insertBefore(i, l[e]) : t.appendChild(i) } }
@@ -34,7 +34,7 @@
     p = 0;
 
   function u(t, e) { var r, a, o; if (e.singleton) { var i = p++;
-      r = b || (b = n(e)), a = c.bind(null, r, i, !1), o = c.bind(null, r, i, !0) } else r = n(e), a = h.bind(null, r, e), o = function() {! function(t) { if (null === t.parentNode) return !1;
+      r = b || (b = n(e)), a = f.bind(null, r, i, !1), o = f.bind(null, r, i, !0) } else r = n(e), a = h.bind(null, r, e), o = function() {! function(t) { if (null === t.parentNode) return !1;
         t.parentNode.removeChild(t) }(r) }; return a(t),
       function(e) { if (e) { if (e.css === t.css && e.media === t.media && e.sourceMap === t.sourceMap) return;
           a(t = e) } else o() } }
@@ -55,7 +55,7 @@
         s = [],
         n = e.length,
         d = Math.floor(n / 2),
-        f = e.splice(d, 1)[0]; for (let t = 0; t < n - 1; t++) o(e[t][r], f[r], a, i) ? l.push(e[t]) : s.push(e[t]); return t(l, r, a, i).concat(f, t(s, r, a, i)) }(JSON.parse(JSON.stringify(t.data)), e, r, a);
+        c = e.splice(d, 1)[0]; for (let t = 0; t < n - 1; t++) o(e[t][r], c[r], a, i) ? l.push(e[t]) : s.push(e[t]); return t(l, r, a, i).concat(c, t(s, r, a, i)) }(JSON.parse(JSON.stringify(t.data)), e, r, a);
     JSON.stringify(t.data) !== JSON.stringify(i) && (! function(t, e) { let r = 0; for (let a = 0; a < e.length; a++) { const o = e[a]; let i = 0; for (; i < t.length; i++) { const l = t[i]; if (o.$key === l.$key) { if (o.$el = l.$el, o.$fixedLeftEl = l.$fixedLeftEl, o.$fixedRightEl = l.$fixedRightEl, i < r) { const t = e[a - 1],
                 r = t.$el.nextSibling; if (r.parentNode.insertBefore(l.$el, r), t.$fixedLeftEl) { const e = t.$fixedLeftEl.nextSibling;
                 e.parentNode.insertBefore(l.$fixedLeftEl, e) } if (t.$fixedRightEl) { const e = t.$fixedRightEl.nextSibling;
@@ -63,7 +63,7 @@
 
   function o(t, e, r, a) { return "number" === a && (t = parseFloat(t), e = parseFloat(e)), "ASC" === r ? t < e : t > e }
 
-  function i(t) { return document.createElement(t) }
+  function i(t, e) { let r = document.createElement(t); return e && (r.className = e), r }
 
   function l(t, e) { return t.appendChild(e) }
 
@@ -73,11 +73,11 @@
 
   function d(t, e) { return t.querySelectorAll(e) }
 
-  function f(t) { let e = t.childNodes,
-      r = i("div"); for (r.className = "smart-table_cell"; e.length;) l(r, e[0]);
+  function c(t) { let e = t.childNodes,
+      r = i("div", "smart-table_cell"); for (; e.length;) l(r, e[0]);
     l(t, r) }
 
-  function c(t, e, r, a) { let o = i("div");
+  function f(t, e, r, a) { let o = i("div");
     o.className = t; let s = i("table"); return s.className = "smart-table_" + r, s.style.width = e.size.tabelWidth - 1 + "px", l(s, p(e.colgroup)), l(s, a), l(o, s), o }
 
   function h(t, e) { let r = p(t.colgroup);
@@ -94,12 +94,12 @@
       i.forEach((e, r) => { "is-hidden" != e.className && (l += t.colgroup[r]) }), e.style.width = l + "px", a.style.width = r + "px", o.style.width = r + "px" } }
 
   function m(t) { this instanceof m || console.error("Smart Table is a constructor and should be called with the `new` keyword"), window.addEventListener("load", () => { setTimeout(this._init(t), 0) }) }
-  m.prototype._init = function(t = {}) { t.selector || console.error("Smart Table init need a selector"); const e = this; var r;
-    e.$options = t, e.isWindows = (r = navigator.userAgent.toLowerCase()).indexOf("win32") >= 0 || r.indexOf("wow32") >= 0 || r.indexOf("win64") >= 0 || r.indexOf("wow64") >= 0, e.scrollbarFit = t.scrollbarWidth ? t.scrollbarWidth : 8; const o = t.selector && n(document, String(t.selector).trim()); if (!o) return; const p = n(o, "table"); if (!p) return;
-    o.classList.add("smart-table"), t.size && o.classList.add("smart-table-custom-" + t.size), t.textAlign && o.classList.add("smart-table-custom-" + t.textAlign); const m = n(p, "thead"),
-      g = n(p, "tbody");
-    d(m, "th").forEach(t => f(t)), d(g, "td").forEach(t => f(t)), p.hasAttribute("stripe") && g.classList.add("stripe"), p.style.width = "100%", e.$root = o; const x = m.offsetHeight,
-      A = p.offsetHeight; let w = t.tableHeight; var y, v; if (w = ("function" == typeof w ? w() : w) || A, w = w > x ? w : x + 100, e.size = { theadHeight: x, tbodyHeight: w - x, tabelWidth: p.offsetWidth, wrapperWidth: p.offsetWidth, tableHeight: w, fixWrapperHeigth: A > w ? w : A }, e.props = function(t) { let e = {},
+  m.prototype._init = function(t = {}) { t.selector || console.error("Smart Table init need a selector"); const e = this;
+    e.$options = t, e.scrollbarFit = 8; const r = t.selector && n(document, String(t.selector).trim()); if (!r) return; const o = n(r, "table"); if (!o) return;
+    r.classList.add("smart-table"), t.size && r.classList.add("smart-table-custom-" + t.size), t.align && r.classList.add("smart-table-custom-" + t.align); const p = n(o, "thead"),
+      m = n(o, "tbody");
+    d(p, "th").forEach(t => c(t)), d(m, "td").forEach(t => c(t)), o.hasAttribute("stripe") && m.classList.add("stripe"), o.style.width = "100%", e.$root = r; const g = p.offsetHeight,
+      x = o.offsetHeight; let A = t.height; var w, y; if (A = ("function" == typeof A ? A() : A) || x, A = A > g ? A : g + 100, e.size = { theadHeight: g, tbodyHeight: A - g, tabelWidth: o.offsetWidth, wrapperWidth: o.offsetWidth, tableHeight: A, fixWrapperHeigth: x > A ? A : x }, e.props = function(t) { let e = {},
           r = [],
           a = d(t, "tr"); return a.forEach((t, e) => { let a = r[e] || [];
           d(t, "th").forEach(t => { let o = b(t, "rowspan", 1),
@@ -109,31 +109,31 @@
               for (let t = 1; t < i; t++) a[l + t] = 0; if (o > 1)
               for (let t = 1; t < o; t++) { let a = r[e + t] || []; for (let t = 0; t < i; t++) a[l + t] = 0;
                 r[e + t] = a }
-            r[e] = a }) }), e.theadLength = a.length, e.shapes = r, e }(m), e.colgroup = function(t, e, r) { let a = []; return 1 === r ? d(n(t, "tr"), "th").forEach(t => { let e = b(t, "width", 0);
+            r[e] = a }) }), e.theadLength = a.length, e.shapes = r, e }(p), e.colgroup = function(t, e, r) { let a = []; return 1 === r ? d(n(t, "tr"), "th").forEach(t => { let e = b(t, "width", 0);
           0 === e && (e = t.offsetWidth > 80 ? t.offsetWidth : 80), a.push(e) }) : d(n(e, "tr"), "td").forEach(t => { let e = t.offsetWidth;
-          e += e < 50 ? 10 : e >= 50 && e < 100 ? 30 : 40, a.push(e) }), a }(m, g, e.props.theadLength), e.size.tabelWidth = p.style.width = e.colgroup.reduce((t, e) => t + e), e.hasVerticalScroll = w < p.offsetHeight, e.hasHorizontalScroll = o.offsetWidth < e.size.tabelWidth, function(t, e) { let { colgroup: r, props: a } = e; const o = r.length; let i = { thead: [], tbody: [], width: 0 },
+          e += e < 50 ? 10 : e >= 50 && e < 100 ? 30 : 40, a.push(e) }), a }(p, m, e.props.theadLength), e.size.tabelWidth = o.style.width = e.colgroup.reduce((t, e) => t + e), e.hasVerticalScroll = A < o.offsetHeight, e.hasHorizontalScroll = r.offsetWidth < e.size.tabelWidth, function(t, e) { let { colgroup: r, props: a } = e; const o = r.length; let i = { thead: [], tbody: [], width: 0 },
           l = { thead: [], tbody: [], width: 0 }; const s = d(n(t, "tr"), "th"),
-          f = s.length; let c = 0; if (0 !== f) { if (s[0].hasAttribute("fixed"))
-            for (let t = 0; t < f - 1; t++)
-              if (s[t].hasAttribute("fixed")) { c = t, i.thead.push("field-" + t); let e = b(s[t], "colspan", 1); for (let a = 0; a < e; a++) i.tbody.push("field-" + (t + a)), i.width = i.width + r[t + a] }
-          if (s[f - 1].hasAttribute("fixed")) { let t = 0; for (let e = f - 1; e > 0; e--)
-              if (s[e].hasAttribute("fixed")) { if (e === c) break;
+          c = s.length; let f = 0; if (0 !== c) { if (s[0].hasAttribute("fixed"))
+            for (let t = 0; t < c - 1; t++)
+              if (s[t].hasAttribute("fixed")) { f = t, i.thead.push("field-" + t); let e = b(s[t], "colspan", 1); for (let a = 0; a < e; a++) i.tbody.push("field-" + (t + a)), i.width = i.width + r[t + a] }
+          if (s[c - 1].hasAttribute("fixed")) { let t = 0; for (let e = c - 1; e > 0; e--)
+              if (s[e].hasAttribute("fixed")) { if (e === f) break;
                 l.thead.push("field-" + e); let a = b(s[e], "colspan", 1); for (let e = 0; e < a; e++) t++, l.tbody.push("field-" + (o - t)), l.width = l.width + r[o - t] } } }
-        a.fixedLeft = i, a.fixedRight = l }(m, e), e.$theadWrapper = c("smart-table_header-wrapper", e, "header", m), e.$tbodyWrapper = c("smart-table_body-wrapper", e, "body", g), l(o, e.$theadWrapper), l(o, e.$tbodyWrapper), e.size.theadHeight = m.offsetHeight, e.size.tbodyHeight = w - m.offsetHeight, y = p.parentNode, v = p, y.removeChild(v), function(t, e, r) { const { fixedLeft: a, fixedRight: o } = t.props; let f = 320; if (d(t.$root, ".smart-table_body-wrapper").forEach(e => { e.style.height = t.size.tbodyHeight + "px" }), a.thead.length > 0) { f = f > a.width ? f : a.width; let o = s(e, !0);
-          d(n(o, "tr"), "th").forEach((t, e) => {-1 === a.thead.indexOf("field-" + e) && t.classList.add("is-hidden") }); let h = c("smart-table_fixed-header-wrapper", t, "header", o),
+        a.fixedLeft = i, a.fixedRight = l }(p, e), e.$theadWrapper = f("smart-table_header-wrapper", e, "header", p), e.$tbodyWrapper = f("smart-table_body-wrapper", e, "body", m), l(r, e.$theadWrapper), l(r, e.$tbodyWrapper), e.size.theadHeight = p.offsetHeight, e.size.tbodyHeight = A - p.offsetHeight, w = o.parentNode, y = o, w.removeChild(y), function(t, e, r) { const { fixedLeft: a, fixedRight: o } = t.props; let c = 320; if (d(t.$root, ".smart-table_body-wrapper").forEach(e => { e.style.height = t.size.tbodyHeight + "px" }), a.thead.length > 0) { c = c > a.width ? c : a.width; let o = s(e, !0);
+          d(n(o, "tr"), "th").forEach((t, e) => {-1 === a.thead.indexOf("field-" + e) && t.classList.add("is-hidden") }); let h = f("smart-table_fixed-header-wrapper", t, "header", o),
             b = s(r, !0);
-          d(b, "tr").forEach(t => { d(t, "td").forEach((t, e) => {-1 === a.tbody.indexOf("field-" + e) && t.classList.add("is-hidden") }) }); let p = c("smart-table_fixed-body-wrapper", t, "body", b);
+          d(b, "tr").forEach(t => { d(t, "td").forEach((t, e) => {-1 === a.tbody.indexOf("field-" + e) && t.classList.add("is-hidden") }) }); let p = f("smart-table_fixed-body-wrapper", t, "body", b);
           p.style.top = t.size.theadHeight + "px", p.style.height = t.size.tbodyHeight - (t.hasHorizontalScroll ? t.scrollbarFit : 0) + "px"; let u = i("div");
-          u.className = "smart-table_fixed", l(u, h), l(u, p), u.style.width = a.width + "px", u.style.height = t.size.fixWrapperHeigth - (t.hasHorizontalScroll ? t.scrollbarFit : 0) + "px", l(t.$root, u), t.$fixedLeft = p } if (o.thead.length > 0) { f += o.width; let a = s(e, !0);
-          d(n(a, "tr"), "th").forEach((t, e) => {-1 === o.thead.indexOf("field-" + e) && t.classList.add("is-hidden") }); let h = c("smart-table_fixed-header-wrapper", t, "header", a),
+          u.className = "smart-table_fixed", l(u, h), l(u, p), u.style.width = a.width + "px", u.style.height = t.size.fixWrapperHeigth - (t.hasHorizontalScroll ? t.scrollbarFit : 0) + "px", l(t.$root, u), t.$fixedLeft = p } if (o.thead.length > 0) { c += o.width; let a = s(e, !0);
+          d(n(a, "tr"), "th").forEach((t, e) => {-1 === o.thead.indexOf("field-" + e) && t.classList.add("is-hidden") }); let h = f("smart-table_fixed-header-wrapper", t, "header", a),
             b = s(r, !0);
-          d(b, "tr").forEach(t => { d(t, "td").forEach((t, e) => {-1 === o.tbody.indexOf("field-" + e) && t.classList.add("is-hidden") }) }); let p = c("smart-table_fixed-body-wrapper", t, "body", b);
+          d(b, "tr").forEach(t => { d(t, "td").forEach((t, e) => {-1 === o.tbody.indexOf("field-" + e) && t.classList.add("is-hidden") }) }); let p = f("smart-table_fixed-body-wrapper", t, "body", b);
           p.style.top = t.size.theadHeight + "px", p.style.height = t.size.tbodyHeight - (t.hasHorizontalScroll ? t.scrollbarFit : 0) + "px"; let u = i("div"); if (u.className = "smart-table_fixed-right", u.style.right = (t.hasVerticalScroll ? t.scrollbarFit : 0) + "px", l(u, h), l(u, p), u.style.width = o.width + "px", u.style.height = t.size.fixWrapperHeigth - (t.hasHorizontalScroll ? t.scrollbarFit : 0) + "px", l(t.$root, u), t.$fixedRight = p, t.hasVerticalScroll) { let e = i("div");
             e.className = "smart-table_fixed-right-patch", e.style.width = t.scrollbarFit + "px", e.style.height = t.size.theadHeight + "px", l(t.$root, e) } }
-        t.$root.style.minWidth = f + "px" }(e, m, g), e.data = function(t, e) { let r = t.$fixedLeft && d(t.$fixedLeft, "tbody tr"),
+        t.$root.style.minWidth = c + "px" }(e, p, m), e.data = function(t, e) { let r = t.$fixedLeft && d(t.$fixedLeft, "tbody tr"),
           a = t.$fixedRight && d(t.$fixedRight, "tbody tr"),
           o = []; return d(e, "tr").forEach((t, e) => { if (!t.hasAttribute("unsort")) { let i = { $el: t, $fixedLeftEl: r && r[e], $fixedRightEl: a && a[e], $key: "$$rowkey" + e };
-            d(t, "td .cell").forEach((t, e) => { i["field-" + e] = t.innerHTML }), o.push(i) } }), o }(e, g), function(t) { let e = Array.from(d(t.$root, "th[sort]"));
+            d(t, "td .cell").forEach((t, e) => { i["field-" + e] = t.innerHTML }), o.push(i) } }), o }(e, m), function(t) { let e = Array.from(d(t.$root, "th[sort]"));
         0 !== e.length && e.forEach(r => { r.addEventListener("click", o => { o.stopPropagation(); let i = "ASC",
               l = r.getAttribute("sort") || "string";
             r.classList.contains("asc") ? (r.classList.remove("asc"), r.classList.add("desc"), i = "DESC") : (r.classList.remove("desc"), r.classList.add("asc")), e = e.map(t => (r != t && t.classList.remove("asc", "desc"), t)), a(t, r.getAttribute("sortkey"), i, l) }) }) }(e), function(t) { t.$tbodyWrapper.addEventListener("scroll", () => function(t) {! function(t, e) { let r, a = 0; return function() { let o = this,
@@ -152,5 +152,5 @@
           r = d(t.$root, ".smart-table_fixed .smart-table_fixed-body-wrapper tr"),
           a = d(t.$root, ".smart-table_fixed-right .smart-table_fixed-body-wrapper tr");
         e.forEach((t, e) => { t.addEventListener("mouseenter", () => { t.className = "smart-table_hover-tr", r.length > 0 && (r[e].className = "smart-table_hover-tr"), a.length > 0 && (a[e].className = "smart-table_hover-tr") }), t.addEventListener("mouseleave", () => { t.className = "", r.length > 0 && (r[e].className = ""), a.length > 0 && (a[e].className = "") }) }) }(e), e.hasVerticalScroll) { let t = i("th");
-      t.setAttribute("width", e.scrollbarFit), t.setAttribute("rowspan", e.props.shapes.length), l(n(m, "tr"), t) } }; var g = m;
+      t.setAttribute("width", e.scrollbarFit), t.setAttribute("rowspan", e.props.shapes.length), l(n(p, "tr"), t) } }; var g = m;
   window.SmartTable = g }]);

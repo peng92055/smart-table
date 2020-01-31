@@ -23,33 +23,32 @@
 可直接访问https://peng92055.github.io/smart-table
 
 ## Usage
-- 加载UI库
+- 加载UI库<br>
+  Download the minified library [smartTable.min.js](https://github.com/peng92055/smart-table/tree/master/dist/smartTable.min.js), and include it in your webpage.
 ```html
-  <script type="text/javascript" src="./dist/smartTable.[chunkhash].js"></script>
-  或者使用七牛云空间的存储
-  <script type="text/javascript" src="http://q4uv9bkgj.bkt.clouddn.com/smartTable.26faa588.js"></script>
+  /* smartTable library */
+  <script type="text/javascript" src="js/smartTable.min.js"></script>
 ```
 - 输出静态HTML 表格基础属性需在服务端返回前指定<br>
-**规则：1、必须指定class为smart-table；2、th或td中必须有一层class为cell的div包裹（后期迭代自动处理掉）**
 ```html
-  <div class="smart-table" id="smartTable">
+  <div id="smartTable">
       <table stripe>
         <thead>
           <tr>
-            <th fixed sort>
-              <div class="cell">Id</div>
-            </th>
+            <th fixed sort>Id</th>
+            <th colspan="1" rowspan="2" width="200">日期</th>
             ...
+            <th fixed>价格</th>  <!-- 右边固定列 -->
         <tbody>
           <tr>
-            <td>
-              <div class="cell">DD001</div>
-            </th>
+            <td>DD001</td>
+            <td>2020-01-31</td>
             ...
+            <td>889.00</td>
           <tr unsort>
-            <td>
-              <div class="cell">合计</div>
-            </th>
+            <td colspan="2">合计</td>
+            ...
+            <td>18988.00</td>
 ```
 - 初始化表格
 ```javascript
@@ -80,13 +79,13 @@
 | textAlign             | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
 | size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small        |
 
-
-## 启动项目
+## 本地开发
+### 启动项目
 ```
 npm run serve
 ```
 
-## build 流程
+### build 流程
 ```
 npm run build
 ```

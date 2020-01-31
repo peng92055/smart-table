@@ -4,7 +4,7 @@ set -e
 
 npm run example
 
-cd examples
+cd docs
 
 git init
 git config user.name 'pengyajun'

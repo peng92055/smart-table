@@ -2,9 +2,9 @@
 
 set -e
 
-npm run build
+npm run example
 
-cd dist
+cd examples
 
 git init
 git config user.name 'pengyajun'

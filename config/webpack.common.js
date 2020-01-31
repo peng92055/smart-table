@@ -1,14 +1,5 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: './src/index.js',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public/index.html'),
-      inject: 'head'
-    })
-  ],
   module: {
     rules: [{
       test: /\.scss$/,
@@ -22,10 +13,6 @@ module.exports = {
           }
         }
       ]
-    }, ]
-  },
-  output: {
-    filename: 'smartTable.min.js',
-    path: path.resolve(__dirname, '../dist')
-  },
+    }]
+  }
 }

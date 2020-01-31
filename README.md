@@ -24,7 +24,7 @@
 
 ## Usage
 - 加载UI库<br>
-  Download the minified library [smartTable.min.js](https://github.com/peng92055/smart-table/tree/master/dist/smartTable.min.js), and include it in your webpage.
+  Download the minified library [smartTable.min.js](https://peng92055.github.io/smart-table/smartTable.min.js), and include it in your webpage.
 ```html
   /* smartTable library */
   <script type="text/javascript" src="js/smartTable.min.js"></script>

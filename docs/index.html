@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="./assets/fav.ico">
+
   <title>Smart Example</title>
 
   <style>
@@ -39,7 +41,7 @@
       height: 50px;
     }
   </style>
-</head>
+<script type="text/javascript" src="smartTable.min.js"></script></head>
 
 <body>
   <h1 class="title">Smart Table Example<a href="https://github.com/peng92055/smart-table" target="_blank" rel="noopener noreferrer" class="repo-link">
@@ -50,6 +52,7 @@
         <thead>
           <tr>
             <th colspan="1" rowspan="3" fixed sort>Id</th>
+            <th colspan="1" rowspan="3" fixed sort>Logo</th>
             <th colspan="1" rowspan="2" width="200" fixed>日期</th>
             <th colspan="1" rowspan="2" width="100" sort>姓名</th>
             <th colspan="1" width="100" rowspan="1">省份</th>
@@ -61,15 +64,17 @@
         <tbody>
           <tr>
             <td>12</td>
+            <td><img src="./assets/js-table.png" /></td>
             <td>2020-01-03</td>
             <td>1王小虎</td>
             <td>1上海</td>
             <td>2长宁区</td>
-            <td>3上海市长宁区淞虹路888号<img src="//hbimg.huabanimg.com/e3ebdd150746bf9e5ce4c6b057c1e5541c11721b84efd-PN5wmF_fw658" /></td>
+            <td>3上海市长宁区淞虹路888号</td>
             <td>200331</td>
           </tr>
           <tr>
             <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
             <td>2020-02-03</td>
             <td>2王小虎</td>
             <td>3上海</td>
@@ -79,6 +84,27 @@
           </tr>
           <tr>
             <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
             <td>2020-03-03</td>
             <td>3王小虎</td>
             <td>4上海</td>
@@ -88,6 +114,7 @@
           </tr>
           <tr>
             <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
             <td>2020-02-03</td>
             <td>2王小虎</td>
             <td>3上海</td>
@@ -97,24 +124,7 @@
           </tr>
           <tr>
             <td>14</td>
-            <td>2020-03-03</td>
-            <td>3王小虎</td>
-            <td>4上海</td>
-            <td>1长宁区</td>
-            <td>6上海市长宁区淞虹路888号</td>
-            <td>200331</td>
-          </tr>
-          <tr>
-            <td>13</td>
-            <td>2020-02-03</td>
-            <td>2王小虎</td>
-            <td>3上海</td>
-            <td>4长宁区</td>
-            <td>2上海市长宁区淞虹路888号</td>
-            <td>200331</td>
-          </tr>
-          <tr>
-            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
             <td>2020-03-03</td>
             <td>3王小虎</td>
             <td>4上海</td>
@@ -123,12 +133,7 @@
             <td>200331</td>
           </tr>
           <tr unsort>
-            <td>15</td>
-            <td>2020-04-03</td>
-            <td>5王小虎</td>
-            <td>6上海</td>
-            <td>7长宁区</td>
-            <td>8上海市长宁区淞虹路888号</td>
+            <td colspan="6">合计</td>
             <td>200331</td>
           </tr>
         </tbody>

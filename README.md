@@ -1,4 +1,7 @@
 # Smart Table 组件
+![Badge](https://img.shields.io/badge/Hey!-Everybody-yellow)
+![Version](https://img.shields.io/github/package-json/v/peng92055/smart-table)
+![License](https://img.shields.io/github/license/peng92055/smart-table)
 
 **专处理纯静态table固定头列及排序功能**
 

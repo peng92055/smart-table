@@ -29,7 +29,7 @@
   /* smartTable library */
   <script type="text/javascript" src="js/smartTable.min.js"></script>
 ```
-- 输出静态HTML 表格基础属性需在服务端返回前指定<br>
+- 输出静态HTML(表格基础属性需在服务端返回时指定)<br>
 ```html
   <div id="smartTable">
       <table stripe>

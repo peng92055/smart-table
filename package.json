@@ -10,7 +10,7 @@
     "deploy": "sh deploy/index.sh"
   },
   "author": "pyj92055@163.com",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",

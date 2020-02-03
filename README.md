@@ -77,9 +77,9 @@
 | Property              | Type               | Required    | Description                                 | Default       |
 | :---------------------| :----------------- | :---------- | :------------------------------------------ | :------------ |
 | selector              | string             | yes         | 需要初始化的表格元素                            |               |
-| tableHeight           | number or function | no          | 可指定表格的高度                               |               |
-| textAlign             | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
-| size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small        |
+| height                | number or function | no          | 可指定表格的高度                               |               |
+| align                 | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
+| size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small         |
 
 ## 本地开发
 ### 启动项目

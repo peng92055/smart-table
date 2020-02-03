@@ -56,8 +56,8 @@
 ```javascript
     new SmartTable({
       selector: '#smartTable',
-      tableHeight: 300,
-      textAlign: 'left',
+      height: 300,
+      align: 'left',
       size: 'middle'
     })
 ```

@@ -56,6 +56,7 @@
 ```javascript
     new SmartTable({
       selector: '#smartTable',
+      hoverBgColor: '#C5DFFF',
       height: 300,
       align: 'left',
       size: 'middle'
@@ -80,6 +81,7 @@
 | height                | number or function | no          | 可指定表格的高度                               |               |
 | align                 | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
 | size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small         |
+| hoverBgColor          | string             | no          | body中每行hover时的背景色                      | '#EFF8FF'     |
 
 ## 本地开发
 ### 启动项目

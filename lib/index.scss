@@ -5,15 +5,15 @@
   width: 100%;
   max-width: 100%;
   background-color: #fff;
-  color: #606266;
-  border: 1px solid #EBEEF5;
+  color: #6A6B6F;
+  border: 1px solid #ECF0F5;
   border-right: none;
   border-bottom: none;
   &:after,
   &:before {
     content: "";
     position: absolute;
-    background-color: #ebeef5;
+    background-color: #ECF0F5;
     z-index: 1;
   }
   &:before {
@@ -32,20 +32,32 @@
     border-spacing: 0;
     border: 0;
   }
+  thead {
+    background: #F5F7FB;
+    font-size: 13px;
+  }
+  tbody {
+    font-size: 12px;
+    &.stripe {
+      tr:nth-child(2n) {
+        background-color: #F9FBFF;
+      }
+    }
+  }
   tr {
     transition: background-color .25s ease;
   }
-  thead {
-    color: #909399;
-    font-weight: 500;
-    background: #F5F7FA;
-    tr {
-      background: #F5F7FA;
-    }
-  }
-  tbody.stripe {
-    tr:nth-child(2n) {
-      background-color: #F5F7FA;
+  td,
+  th {
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    border-bottom: 1px solid #ECF0F5;
+    border-right: 1px solid #ECF0F5;
+    text-align: center;
+    &.is-hidden>* {
+      visibility: hidden;
     }
   }
   th {
@@ -69,82 +81,70 @@
       }
     }
   }
-  td,
-  th {
-    padding: 6px 0;
-    min-width: 50px;
-    box-sizing: border-box;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-    position: relative;
-    text-align: left;
-    border-bottom: 1px solid #EBEEF5;
-    border-right: 1px solid #EBEEF5;
-    text-align: center;
-    &.is-hidden>* {
-      visibility: hidden;
+  &.stb-cust-large {
+    thead {
+      font-size: 16px;
     }
-  }
-  &.smart-table-custom-large {
+    tbody {
+      font-size: 15px;
+    }
     td,
     th {
       padding: 12px 0;
     }
   }
-  &.smart-table-custom-middle {
+  &.stb-cust-middle {
+    thead {
+      font-size: 15px;
+    }
+    tbody {
+      font-size: 14px;
+    }
     td,
     th {
       padding: 10px 0;
     }
   }
-  &.smart-table-custom-left {
+  &.stb-cust-left {
     td,
     th {
       text-align: left;
     }
   }
-  &.smart-table-custom-right {
+  &.stb-cust-right {
     td,
     th {
       text-align: right;
     }
   }
-  .smart-table_cell {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  .stb_cell {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
     word-break: break-all;
+    padding: 0 4px;
     line-height: 23px;
-    padding-left: 4px;
-    padding-right: 4px;
   }
-  th>.smart-table_cell {
+  th>.stb_cell {
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     position: relative;
     vertical-align: middle;
-    padding-left: 4px;
-    padding-right: 4px;
-    width: 100%;
   }
-  .smart-table_body,
-  .smart-table_footer,
-  .smart-table_header {
+  .stb_body,
+  .stb_footer,
+  .stb_header {
     table-layout: fixed;
     border-collapse: separate;
     background: #fff;
   }
-  .smart-table_header-wrapper {
+  .stb_header-wrapper {
     overflow: hidden;
   }
-  .smart-table_body-wrapper {
+  .stb_body-wrapper {
     overflow: auto;
   }
-  .smart-table_fixed,
-  .smart-table_fixed-right {
+  .stb_fixed,
+  .stb_fixed-right {
     position: absolute;
     top: 0;
     left: 0;
@@ -152,39 +152,36 @@
     overflow-y: hidden;
     box-shadow: 0 -1px 8px rgba(0, 0, 0, .08);
   }
-  .smart-table_fixed-right {
+  .stb_fixed-right {
     top: 0;
     left: auto;
     right: 0;
     box-shadow: -1px 0 8px rgba(0, 0, 0, .08);
-    .smart-table_fixed-body-wrapper,
-    .smart-table_fixed-footer-wrapper,
-    .smart-table_fixed-header-wrapper {
+    .stb_fixed-body-wrapper,
+    .stb_fixed-footer-wrapper,
+    .stb_fixed-header-wrapper {
       left: auto;
       right: 0;
     }
   }
-  .smart-table_fixed-right-patch {
+  .stb_fixed-right-patch {
     position: absolute;
     top: -1px;
     right: 0;
-    background-color: #F5F7FA;
+    background-color: #F5F7FB;
   }
-  .smart-table_fixed-header-wrapper {
+  .stb_fixed-header-wrapper {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 3;
   }
-  .smart-table_fixed-body-wrapper {
+  .stb_fixed-body-wrapper {
     position: absolute;
     left: 0;
     top: 37px;
     overflow: hidden;
     z-index: 3;
-  }
-  .smart-table_hover-tr {
-    background-color: #f0f5fd !important;
   }
    ::-webkit-scrollbar {
     width: 8px;
@@ -200,5 +197,8 @@
   }
    ::-webkit-scrollbar-thumb:hover {
     background-color: #9bbbfa;
+  }
+  * {
+    box-sizing: border-box;
   }
 }

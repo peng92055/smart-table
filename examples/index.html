@@ -55,7 +55,7 @@
             <th colspan="1" fixed sort>Logo</th>
             <th colspan="1" width="200" fixed>日期</th>
             <th colspan="1" width="100" sort>姓名</th>
-            <th colspan="1" width="100">省份</th>
+            <th colspan="1">省份（包含自治区）</th>
             <th colspan="1" sort>市区</th>
             <th colspan="1">地址</th>
             <th colspan="1" width="95" fixed>邮编</th>
@@ -145,18 +145,18 @@
         <thead>
           <tr>
             <th colspan="1" rowspan="3" fixed sort="number">Id</th>
-            <th colspan="1" rowspan="3" sort fixed>日期</th>
+            <th colspan="1" rowspan="3" width="240" sort fixed>日期</th>
             <th colspan="5" rowspan="1" sort>配送信息</th>
             <th colspan="1" rowspan="3" fixed>操作</th>
           </tr>
           <tr>
-            <th colspan="1" rowspan="2" width="240" sort>姓名</th>
+            <th colspan="1" rowspan="2" width="280" sort>姓名</th>
             <th colspan="4" rowspan="1" sort>地址</th>
           </tr>
           <tr>
             <th colspan="1" rowspan="1">省份</th>
-            <th colspan="1" rowspan="1" width="120">市区</th>
-            <th colspan="1" rowspan="1" width="280">地址</th>
+            <th colspan="1" rowspan="1" width="240">市区</th>
+            <th colspan="1" rowspan="1" width="300">地址</th>
             <th colspan="1" rowspan="1" sort>邮编</th>
           </tr>
         </thead>
@@ -229,12 +229,13 @@
   <script>
     new SmartTable({
       selector: '#smartTable1',
-      height: 300,
+      height: 320,
       hoverBgColor: '#C5DFFF'
     })
     new SmartTable({
       selector: '#smartTable2',
       align: 'left',
+      height: 320,
       size: 'middle'
     })
   </script>

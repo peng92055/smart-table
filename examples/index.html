@@ -51,14 +51,14 @@
       <table stripe>
         <thead>
           <tr>
-            <th colspan="1" rowspan="3" fixed sort>Id</th>
-            <th colspan="1" rowspan="3" fixed sort>Logo</th>
-            <th colspan="1" rowspan="2" width="200" fixed>日期</th>
-            <th colspan="1" rowspan="2" width="100" sort>姓名</th>
-            <th colspan="1" width="100" rowspan="1">省份</th>
-            <th colspan="1" rowspan="1" sort>市区</th>
-            <th colspan="1" rowspan="1">地址</th>
-            <th colspan="1" rowspan="1" fixed>邮编</th>
+            <th colspan="1" fixed sort>Id</th>
+            <th colspan="1" fixed sort>Logo</th>
+            <th colspan="1" width="200" fixed>日期</th>
+            <th colspan="1" width="100" sort>姓名</th>
+            <th colspan="1" width="100">省份</th>
+            <th colspan="1" sort>市区</th>
+            <th colspan="1">地址</th>
+            <th colspan="1" width="95" fixed>邮编</th>
           </tr>
         </thead>
         <tbody>
@@ -150,13 +150,13 @@
             <th colspan="1" rowspan="3" fixed>操作</th>
           </tr>
           <tr>
-            <th colspan="1" rowspan="2" sort>姓名</th>
+            <th colspan="1" rowspan="2" width="240" sort>姓名</th>
             <th colspan="4" rowspan="1" sort>地址</th>
           </tr>
           <tr>
             <th colspan="1" rowspan="1">省份</th>
-            <th colspan="1" rowspan="1">市区</th>
-            <th colspan="1" rowspan="1">地址</th>
+            <th colspan="1" rowspan="1" width="120">市区</th>
+            <th colspan="1" rowspan="1" width="280">地址</th>
             <th colspan="1" rowspan="1" sort>邮编</th>
           </tr>
         </thead>
@@ -229,11 +229,11 @@
   <script>
     new SmartTable({
       selector: '#smartTable1',
+      height: 300,
       hoverBgColor: '#C5DFFF'
     })
     new SmartTable({
       selector: '#smartTable2',
-      height: 300,
       align: 'left',
       size: 'middle'
     })

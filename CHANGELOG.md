@@ -1,8 +1,18 @@
 # Changelog
 
+## [1.1.2](https://github.com/peng92055/smart-table/tree/1.1.2) (2020-02-06)
+
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.1...1.1.2)
+
+- 增加树形结构表格
+- 使用code替换base64资源
+- 修复resize layout布局错乱
+- 修复fixed元素hover失效
+- 重构colgroup
+
 ## [1.1.1](https://github.com/peng92055/smart-table/tree/1.1.1) (2020-02-04)
 
-[Full Changelog](https://github.com/peng92055/smart-table/compare/1.0.0...1.1.1)
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.0...1.1.1)
 
 - 修复排序bug
 - 优化querySelector
@@ -10,9 +20,9 @@
 - 优化结构
 - 增加autoprefix
 
-## [1.0.0](https://github.com/peng92055/smart-table/tree/1.0.0) (2020-02-01)
+## [1.1.0](https://github.com/peng92055/smart-table/tree/1.1.0) (2020-02-01)
 
-[Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.0...1.0.0)
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.0.0...1.1.0)
 
 - 新增node-ops
 - 新增class及cell自动添加，简化table
@@ -22,7 +32,7 @@
 - 更新引入方式
 - 修复右固定列bug
 
-## [1.1.0](https://github.com/peng92055/smart-table/tree/1.1.0) (2020-02-01)
+## [1.0.0](https://github.com/peng92055/smart-table/tree/1.0.0) (2020-02-01)
 
 [Full Changelog](https://github.com/peng92055/smart-table/compare/063595701304ffa26e4e6e20898fcaaffa3c27f9...1.1.0)
 - first commit

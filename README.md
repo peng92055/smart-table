@@ -51,6 +51,10 @@
             <td colspan="2">合计</td>
             ...
             <td>18988.00</td>
+          ...
+          <tr expand="001">  <!-- 指定当前为展开行 -->
+          <tr expand-parent="001">  <!-- 指定当前为展开行子项 -->
+          <tr expand="001-001" expand-parent="001">  <!-- 指定当前为展开行及为其他行子项 -->
 ```
 - 初始化表格
 ```javascript
@@ -65,14 +69,14 @@
 
 ### Table Attributes
 
-| Property          | Tag Position           | Description                                                       | 
-| :---------------- | :--------------------- | :---------------------------------------------------------------- |
-| stripe            | table                  | 表格是否需要斑马间隔色                                                | 
-| fixed             | thead -> tr -> th      | 是否固定该列                                                        |
-| sort              | thead -> tr -> th      | 是否对该列有排序功能（默认按照string排序，可指定为sort="number" ）        |
-| unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                         |
-| expand            | tbody -> tr            | 可指定body中的某一行是否需要展开                                       |
-| expand-child      | tbody -> tr            | 可指定body中的某一行为上一级子项                                       |
+| Property          | Tag Position           | Description                                                                   | 
+| :---------------- | :--------------------- | :---------------------------------------------------------------------------- |
+| stripe            | table                  | 表格是否需要斑马间隔色                                                            | 
+| fixed             | thead -> tr -> th      | 是否固定该列                                                                     |
+| sort              | thead -> tr -> th      | 是否对该列有排序功能（默认按照string排序，可指定为sort="number" ）                    |
+| unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                                     |
+| expand            | tbody -> tr            | 可指定body中的某一行是否需要展开，  指定expand="001" 001为当前行的ID                  |
+| expand-parent     | tbody -> tr            | 可指定body中的某一行是子项，      指定expand-parent="001"  001为父级ID               |
 
 
 ### Table Options

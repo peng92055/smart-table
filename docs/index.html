@@ -262,7 +262,6 @@
         <thead>
           <tr>
             <th colspan="1" fixed width="200">Id</th>
-            <th colspan="1" sort>Logo</th>
             <th colspan="1" width="200">日期</th>
             <th colspan="1" width="100">姓名</th>
             <th colspan="1">省份（包含自治区）</th>
@@ -272,7 +271,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr expand>
+          <tr expand="001">
             <td>001</td>
             <td>2020-05-02</td>
             <td>王小虎2</td>
@@ -280,9 +279,8 @@
             <td>长宁区2</td>
             <td>上海市长宁区淞虹路888号2</td>
             <td>200332</td>
-            <td><a href="#">查看2</a></td>
           </tr>
-          <tr expand-child>
+          <tr expand-parent="001">
             <td>001-1</td>
             <td>2020-05-03</td>
             <td>上小虎3</td>
@@ -290,9 +288,8 @@
             <td>长宁区3</td>
             <td>上海市长宁区淞虹路888号3</td>
             <td>200333</td>
-            <td><a href="#">查看3</a></td>
           </tr>
-          <tr expand expand-child>
+          <tr expand="001-001" expand-parent="001">
             <td>001-2</td>
             <td>2020-05-03</td>
             <td>上小虎3</td>
@@ -300,9 +297,8 @@
             <td>长宁区3</td>
             <td>上海市长宁区淞虹路888号3</td>
             <td>200333</td>
-            <td><a href="#">查看3</a></td>
           </tr>
-          <tr expand-child>
+          <tr expand-parent="001-001">
             <td>001-2-1</td>
             <td>2020-05-03</td>
             <td>上小虎3</td>
@@ -310,9 +306,8 @@
             <td>长宁区3</td>
             <td>上海市长宁区淞虹路888号3</td>
             <td>200333</td>
-            <td><a href="#">查看3</a></td>
           </tr>
-          <tr expand-child>
+          <tr expand-parent="001-001">
             <td>001-2-2</td>
             <td>2020-05-03</td>
             <td>上小虎3</td>
@@ -320,9 +315,17 @@
             <td>长宁区3</td>
             <td>上海市长宁区淞虹路888号3</td>
             <td>200333</td>
-            <td><a href="#">查看3</a></td>
           </tr>
-          <tr expand>
+          <tr expand-parent="001">
+            <td>001-3</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand="002">
             <td>002</td>
             <td>2020-01-03</td>
             <td>小小虎1</td>
@@ -330,9 +333,8 @@
             <td>长宁区1</td>
             <td>上海市长宁区淞虹路888号1</td>
             <td>200331</td>
-            <td><a href="#">查看1</a></td>
           </tr>
-          <tr expand-child>
+          <tr expand-parent="002">
             <td>002-1</td>
             <td>2020-05-04</td>
             <td>王小虎4</td>
@@ -340,9 +342,8 @@
             <td>长宁区4</td>
             <td>上海市长宁区淞虹路888号4</td>
             <td>200334</td>
-            <td><a href="#">查看4</a></td>
           </tr>
-          <tr expand-child>
+          <tr expand-parent="002">
             <td>002-2</td>
             <td>2020-01-03</td>
             <td>小小虎1</td>
@@ -350,7 +351,6 @@
             <td>长宁区1</td>
             <td>上海市长宁区淞虹路888号1</td>
             <td>200331</td>
-            <td><a href="#">查看1</a></td>
           </tr>
           <tr>
             <td>003</td>
@@ -360,7 +360,6 @@
             <td>长宁区4</td>
             <td>上海市长宁区淞虹路888号4</td>
             <td>200334</td>
-            <td><a href="#">查看4</a></td>
           </tr>
         </tbody>
       </table>
@@ -370,8 +369,7 @@
   <script>
     new SmartTable({
       selector: '#smartTable1',
-      height: 320,
-      hoverBgColor: '#C5DFFF'
+      height: 320
     })
     new SmartTable({
       selector: '#smartTable2',

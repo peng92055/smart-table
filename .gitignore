@@ -3,4 +3,3 @@ node_modules
 *.log
 RELEASE_NOTE*.md
 .vscode
-docs

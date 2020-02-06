@@ -70,7 +70,9 @@
 | stripe            | table                  | 表格是否需要斑马间隔色                                                | 
 | fixed             | thead -> tr -> th      | 是否固定该列                                                        |
 | sort              | thead -> tr -> th      | 是否对该列有排序功能（默认按照string排序，可指定为sort="number" ）        |
-| unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                        |
+| unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                         |
+| expand            | tbody -> tr            | 可指定body中的某一行是否需要展开                                       |
+| expand-child      | tbody -> tr            | 可指定body中的某一行为上一级子项                                       |
 
 
 ### Table Options
@@ -82,6 +84,10 @@
 | align                 | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
 | size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small         |
 | hoverBgColor          | string             | no          | body中每行hover时的背景色                      | '#EFF8FF'     |
+| expand                | boolean            | no          | 是否开启树形结构(树形结构会忽略排序及固定列)       | false        |
+| defaultExpandAll      | boolean            | no          | 是否默认展开所有树形结构                        | false        |
+
+
 
 ## 本地开发
 ### 启动项目

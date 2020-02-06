@@ -261,8 +261,8 @@
       <table>
         <thead>
           <tr>
-            <th colspan="1">Id</th>
-            <th colspan="1">Logo</th>
+            <th colspan="1" fixed width="200">Id</th>
+            <th colspan="1" sort>Logo</th>
             <th colspan="1" width="200">日期</th>
             <th colspan="1" width="100">姓名</th>
             <th colspan="1">省份（包含自治区）</th>
@@ -293,6 +293,36 @@
             <td><a href="#">查看3</a></td>
           </tr>
           <tr expand expand-child>
+            <td>001-2</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+            <td><a href="#">查看3</a></td>
+          </tr>
+          <tr expand-child>
+            <td>001-2-1</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+            <td><a href="#">查看3</a></td>
+          </tr>
+          <tr expand-child>
+            <td>001-2-2</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+            <td><a href="#">查看3</a></td>
+          </tr>
+          <tr expand>
             <td>002</td>
             <td>2020-01-03</td>
             <td>小小虎1</td>
@@ -351,7 +381,9 @@
     })
     new SmartTable({
       selector: '#smartTable3',
-      align: 'left'
+      align: 'left',
+      expand: true,
+      defaultExpandAll: true
     })
   </script>
 

@@ -22,6 +22,7 @@
   - 多级表头
   - 排序
   - 树形数据
+  - 单选、多选
 
 ## 体验
 可直接访问https://peng92055.github.io/smart-table
@@ -65,7 +66,9 @@
       hoverBgColor: '#C5DFFF',
       height: 300,
       align: 'left',
-      size: 'middle'
+      size: 'middle',
+      selection: 'checkbox',
+      selectionKey: 1,
     })
 ```
 
@@ -83,15 +86,18 @@
 
 ### Table Options
 
-| Property              | Type               | Required    | Description                                 | Default       |
-| :---------------------| :----------------- | :---------- | :------------------------------------------ | :------------ |
-| selector              | string             | yes         | 需要初始化的表格元素                            |               |
-| height                | number or function | no          | 可指定表格的高度                               |               |
-| align                 | string             | no          | 表格文本的水平排列方式(left、center、right)      | center        |
-| size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)      | small         |
-| hoverBgColor          | string             | no          | body中每行hover时的背景色                      | '#EFF8FF'     |
-| expand                | boolean            | no          | 是否开启树形结构(树形结构会忽略排序及固定列)       | false        |
-| defaultExpandAll      | boolean            | no          | 是否默认展开所有树形结构                        | false        |
+| Property              | Type               | Required    | Description                                                    | Default       |
+| :---------------------| :----------------- | :---------- | :------------------------------------------------------------- | :------------ |
+| selector              | string             | yes         | 需要初始化的表格元素                                               |               |
+| height                | number or function | no          | 可指定表格的高度                                                  |               |
+| align                 | string             | no          | 表格文本的水平排列方式(left、center、right)                        | center        |
+| size                  | string             | no          | 每一行的垂直高度风格(large、middle、small)                         | small         |
+| hoverBgColor          | string             | no          | body中每行hover时的背景色                                        | '#EFF8FF'     |
+| expand                | boolean            | no          | 是否开启树形结构(树形结构会忽略排序及固定列)                          | false        |
+| defaultExpandAll      | boolean            | no          | 是否默认展开所有树形结构                                           | false        |
+| selection             | string             | no          | 单选或多选（radio、checkbox),选中值会存储在根节点selected属性上       | false        |
+| selectionKey          | string or number   | no          | 单选或多选时选中取值对应的tbody中有效列的角标（角标从0开始）             | 0            |
+
 
 
 

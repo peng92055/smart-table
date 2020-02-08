@@ -9,6 +9,18 @@ const {
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/, //排除掉node_module目录
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
+        }
+      }
+    }],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.BannerPlugin(`smartTable v${pkg.version} | (c) pengyajun 2020 | Released under the MIT License.`)

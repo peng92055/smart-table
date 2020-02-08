@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/peng92055/smart-table/tree/1.2.0) (2020-02-08)
+
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.2...1.2.0)
+
+- 增加多选功能
+- 增加单选功能
+- 结构化优化 提炼styled及offset
+- 优化样式
+
 ## [1.1.2](https://github.com/peng92055/smart-table/tree/1.1.2) (2020-02-06)
 
 [Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.1...1.1.2)

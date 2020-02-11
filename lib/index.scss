@@ -150,6 +150,16 @@
       text-align: right;
     }
   }
+  th[align="left"],
+  td[align="left"] {
+    text-align: left;
+  }
+  th[nowrap],
+  td[nowrap] {
+    .stb_cell {
+      white-space: nowrap;
+    }
+  }
   .std-checkbox_inner {
     display: inline-block;
     position: relative;

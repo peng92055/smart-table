@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1](https://github.com/peng92055/smart-table/tree/1.2.1) (2020-02-08)
+
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.2.0...1.2.1)
+
+- 增加单元格align及nowrap属性
+
 ## [1.2.0](https://github.com/peng92055/smart-table/tree/1.2.0) (2020-02-08)
 
 [Full Changelog](https://github.com/peng92055/smart-table/compare/1.1.2...1.2.0)

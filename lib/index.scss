@@ -154,6 +154,14 @@
   td[align="left"] {
     text-align: left;
   }
+  th[align="center"],
+  td[align="center"] {
+    text-align: center;
+  }
+  th[align="right"],
+  td[align="right"] {
+    text-align: right;
+  }
   th[nowrap],
   td[nowrap] {
     .stb_cell {

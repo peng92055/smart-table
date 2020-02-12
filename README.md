@@ -47,8 +47,8 @@
             <th fixed>价格</th>  <!-- 右边固定列 -->
         <tbody>
           <tr>
-            <td>DD001</td>
-            <td>2020-01-31</td>
+            <td align="right">DD001</td>
+            <td nowrap>2020-01-31</td>
             ...
             <td>889.00</td>
           <tr unsort>
@@ -80,6 +80,8 @@
 | stripe            | table                  | 表格是否需要斑马间隔色                                                            | 
 | fixed             | thead -> tr -> th      | 是否固定该列                                                                     |
 | sort              | thead -> tr -> th      | 是否对该列有排序功能（默认按照string排序，可指定为sort="number" ）                    |
+| align             | th or td               | 对某一单元格指定水平排列方式                                                       |
+| nowrap            | th or td               | 对某一单元格指定内容是否允许换行                                                    |
 | unsort            | tbody -> tr            | 可指定body中的某一行不参与排序                                                     |
 | expand            | tbody -> tr            | 可指定body中的某一行是否需要展开，  指定expand="001" 001为当前行的ID                  |
 | expand-parent     | tbody -> tr            | 可指定body中的某一行是子项，      指定expand-parent="001"  001为父级ID               |

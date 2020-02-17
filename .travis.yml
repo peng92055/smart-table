@@ -1,0 +1,7 @@
+language: node_js
+node_js: lts/*
+git:
+  depth: 1
+install: yarn
+cache: yarn
+script: yarn build

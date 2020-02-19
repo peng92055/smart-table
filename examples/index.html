@@ -374,7 +374,17 @@
     new SmartTable({
       selector: '#smartTable1',
       height: 320,
-      selection: 'radio'
+      selection: 'radio',
+      expandCallback: function(slot, value) {
+        setTimeout(function() {
+          var content = "<span>我是展开内容,当前展开的值为：" + value + "</span>"
+          slot.open(content)
+
+          var content2 = document.createElement("span")
+          content2.innerText = "我是展开内容,当前展开的值为：" + value
+          slot.open(content2, true)
+        })
+      }
     })
     new SmartTable({
       selector: '#smartTable2',

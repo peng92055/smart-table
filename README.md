@@ -69,8 +69,18 @@
       height: 300,
       align: 'left',
       size: 'middle',
-      selection: 'checkbox',
+      selection: 'radio',
       selectionKey: 1,
+      expandCallback: function(slot, value) {
+        setTimeout(function() {
+          var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
+          slot.open(content, true) //第二个参数为是否需要parseDom 当传递的content为字符串时，该值必须传递true
+
+          var content2 = document.createElement("span")
+          content2.innerText = "我是展开内容第二次,当前展开的值为：" + value
+          slot.open(content2)
+        })
+      }
     })
 ```
 
@@ -100,8 +110,9 @@
 | expand                | boolean            | no          | 是否开启树形结构(树形结构会忽略排序及固定列)                      | false        |
 | defaultExpandAll      | boolean            | no          | 是否默认展开所有树形结构                                       | false        |
 | selection             | string             | no          | 单选或多选（radio、checkbox)，选中值会存储在根节点selected属性上  | false        |
-| selectionKey          | string or number   | no          | 单选或多选时选中取值对应的tbody中有效列的角标(角标从0开始)          | 0            |
+| selectionKey          | string or number   | no          | 单选、多选或展开时选中取值对应的tbody中有效列的角标(角标从0开始)     | 0            |
 | radioBgColor          | string             | no          | 单选时，body中选中行的背景色                                   | '#D1E7FF'     |
+| expandCallback        | function           | no          | 动态展开行回调函数，回传slot及value参数                       |               |
 
 
 

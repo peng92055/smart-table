@@ -82,6 +82,7 @@
     <p> <a href="#smartTable2">&bull;&nbsp;固定列</a></p>
     <p> <a href="#smartTable2">&bull;&nbsp;多选</a></p>
     <p> <a href="#smartTable3">&bull;&nbsp;树形表</a></p>
+    <p> <a href="#smartTable4">&bull;&nbsp;展开动态行</a></p>
   </div>
   <div class="container">
     <div id="smartTable1">
@@ -368,23 +369,106 @@
         </tbody>
       </table>
     </div>
+    <div id="smartTable4">
+      <table stripe>
+        <thead>
+          <tr>
+            <th colspan="1" fixed sort>Id</th>
+            <th colspan="1" fixed sort>Logo</th>
+            <th colspan="1" width="200" fixed>日期</th>
+            <th colspan="1" width="100" sort>姓名</th>
+            <th colspan="1">省份（包含自治区）</th>
+            <th colspan="1" sort>市区</th>
+            <th colspan="1">地址</th>
+            <th colspan="1" width="95" fixed>邮编</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-01-03</td>
+            <td>1王小虎</td>
+            <td>1上海</td>
+            <td>2长宁区</td>
+            <td>3上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr unsort>
+            <td colspan="6">合计</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <script>
     new SmartTable({
       selector: '#smartTable1',
       height: 320,
-      selection: 'radio',
-      expandCallback: function(slot, value) {
-        setTimeout(function() {
-          var content = "<span>我是展开内容,当前展开的值为：" + value + "</span>"
-          slot.open(content)
-
-          var content2 = document.createElement("span")
-          content2.innerText = "我是展开内容,当前展开的值为：" + value
-          slot.open(content2, true)
-        })
-      }
+      selection: 'radio'
     })
     new SmartTable({
       selector: '#smartTable2',
@@ -400,6 +484,21 @@
       align: 'left',
       expand: true,
       defaultExpandAll: true
+    })
+    new SmartTable({
+      selector: '#smartTable4',
+      height: 320,
+      selection: 'radio',
+      expandCallback: function(slot, value) {
+        setTimeout(function() {
+          var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
+          slot.open(content, true)
+
+          var content2 = document.createElement("span")
+          content2.innerText = "我是展开内容第二次,当前展开的值为：" + value
+          slot.open(content2)
+        })
+      }
     })
   </script>
 

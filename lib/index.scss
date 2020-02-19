@@ -61,9 +61,6 @@
         transform: rotate(90deg);
       }
     }
-    .expand-cell>.stb_cell {
-      cursor: pointer;
-    }
     .expand-trigger {
       display: inline-block;
       transition: 0.35s ease transform;
@@ -74,8 +71,13 @@
       border-style: solid;
       border-color: transparent transparent transparent #c0c4cc;
       margin-left: 5px;
-      &.open {
-        transform: rotate(90deg);
+    }
+    .expand-cell>.stb_cell {
+      cursor: pointer;
+      &[open] {
+        .expand-trigger {
+          transform: rotate(90deg);
+        }
       }
     }
     &.stripe {

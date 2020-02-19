@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.2.1](https://github.com/peng92055/smart-table/tree/1.2.1) (2020-02-08)
+## [1.2.2](https://github.com/peng92055/smart-table/tree/1.2.2) (2020-02-19)
+
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.2.1...1.2.2)
+
+- 增加动态开展行，支持异步请求，指定关键key
+
+## [1.2.1](https://github.com/peng92055/smart-table/tree/1.2.1) (2020-02-11)
 
 [Full Changelog](https://github.com/peng92055/smart-table/compare/1.2.0...1.2.1)
 

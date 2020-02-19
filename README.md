@@ -25,6 +25,7 @@
   - 树形结构
   - 单选
   - 多选
+  - 开展动态行
 
 ## 体验
 可直接访问https://peng92055.github.io/smart-table
@@ -69,9 +70,9 @@
       height: 300,
       align: 'left',
       size: 'middle',
-      selection: 'radio',
       selectionKey: 1,
       expandCallback: function(slot, value) {
+        //模拟异步 可直接写同步代码
         setTimeout(function() {
           var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
           slot.open(content, true) //第二个参数为是否需要parseDom 当传递的content为字符串时，该值必须传递true

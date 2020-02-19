@@ -488,7 +488,6 @@
     new SmartTable({
       selector: '#smartTable4',
       height: 320,
-      selection: 'radio',
       expandCallback: function(slot, value) {
         setTimeout(function() {
           var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
@@ -497,7 +496,7 @@
           var content2 = document.createElement("span")
           content2.innerText = "我是展开内容第二次,当前展开的值为：" + value
           slot.open(content2)
-        })
+        }, 2000)
       }
     })
   </script>

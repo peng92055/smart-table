@@ -79,6 +79,20 @@
           transform: rotate(90deg);
         }
       }
+      &[loading] {
+        .expand-trigger {
+          margin-left: 0;
+          width: 1em;
+          height: 1em;
+          border-color: none;
+          transform-origin: center;
+          border: .2em solid transparent;
+          border-left-color: currentcolor;
+          border-right-color: currentcolor;
+          border-radius: 50%;
+          animation: 1s loading linear infinite;
+        }
+      }
     }
     &.stripe {
       tr:nth-child(2n) {
@@ -320,5 +334,25 @@
   }
   * {
     box-sizing: border-box;
+  }
+  @-webkit-keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
 }

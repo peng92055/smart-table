@@ -4,3 +4,4 @@ node_modules
 RELEASE_NOTE*.md
 .vscode
 docs/
+package-lock.json

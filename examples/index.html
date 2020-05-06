@@ -14,51 +14,51 @@
       padding: 10px 20px;
       position: relative;
     }
-    
+
     .sidebar {
       position: fixed;
       width: 100px;
       top: 10px;
       left: 30px;
     }
-    
+
     .sidebar>p>a {
       color: #1b7fb0;
     }
-    
+
     .container {
       position: absolute;
       width: calc(100% - 200px);
       left: 150px;
     }
-    
+
     .repo-link {
       font-size: 16px;
       color: #409eff;
       text-decoration: none;
       margin-right: 15px;
     }
-    
+
     .smart-table a {
       color: #409eff;
     }
-    
+
     .title {
       text-align: center;
       padding: 10px 0;
       color: #4acccc;
       margin: 0;
     }
-    
+
     .smart-table {
       margin: 20px 0px;
     }
-    
+
     td img {
       width: 30px;
       height: 30px;
     }
-    
+
     .expand {
       float: left;
       width: 0;
@@ -71,7 +71,8 @@
 </head>
 
 <body>
-  <h1 class="title">Smart Table Examples<a href="https://github.com/peng92055/smart-table" target="_blank" rel="noopener noreferrer" class="repo-link">
+  <h1 class="title">Smart Table Examples<a href="https://github.com/peng92055/smart-table" target="_blank"
+      rel="noopener noreferrer" class="repo-link">
       GitHub</a></h1>
   <div class="sidebar">
     <p>表格类型：</p>
@@ -330,6 +331,15 @@
             <td>上海市长宁区淞虹路888号3</td>
             <td>200333</td>
           </tr>
+          <tr expand="999" expand-parent="001-001">
+            <td>999</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
           <tr expand="002">
             <td>002</td>
             <td>2020-01-03</td>
@@ -488,8 +498,8 @@
     new SmartTable({
       selector: '#smartTable4',
       height: 320,
-      expandCallback: function(slot, value) {
-        setTimeout(function() {
+      expandCallback: function (slot, value) {
+        setTimeout(function () {
           var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
           slot.open(content, true)
 

@@ -10,7 +10,7 @@ module.exports = merge(common, {
       inject: 'head'
     })
   ],
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: './examples'
   }

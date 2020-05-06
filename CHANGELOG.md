@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/peng92055/smart-table/tree/1.2.3) (2020-05-06)
+
+[Full Changelog](https://github.com/peng92055/smart-table/compare/1.2.2...1.2.3)
+
+- 优化树形表格含有非法expand-parent
+- 优化树形表格支持自定义高度控制
+- 修复expand中多标签bug
+  
 ## [1.2.2](https://github.com/peng92055/smart-table/tree/1.2.2) (2020-02-19)
 
 [Full Changelog](https://github.com/peng92055/smart-table/compare/1.2.1...1.2.2)

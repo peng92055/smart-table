@@ -23,6 +23,7 @@ module.exports = merge(common, {
       }
     }],
   },
+  devtool: 'cheap-module-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.BannerPlugin(`smartTable v${pkg.version} | (c) pengyajun 2020 | Released under the MIT License.`),

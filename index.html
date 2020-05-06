@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="./assets/fav.png">
+
+  <title>Smart Table Examples</title>
+
+  <style>
+    body {
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .sidebar {
+      position: fixed;
+      width: 100px;
+      top: 10px;
+      left: 30px;
+    }
+
+    .sidebar>p>a {
+      color: #1b7fb0;
+    }
+
+    .container {
+      position: absolute;
+      width: calc(100% - 200px);
+      left: 150px;
+    }
+
+    .repo-link {
+      font-size: 16px;
+      color: #409eff;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .smart-table a {
+      color: #409eff;
+    }
+
+    .title {
+      text-align: center;
+      padding: 10px 0;
+      color: #4acccc;
+      margin: 0;
+    }
+
+    .smart-table {
+      margin: 20px 0px;
+    }
+
+    td img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .expand {
+      float: left;
+      width: 0;
+      height: 0;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #c0c4cc transparent transparent transparent;
+    }
+  </style>
+<script type="text/javascript" src="smartTable.min.js"></script></head>
+
+<body>
+  <h1 class="title">Smart Table Examples<a href="https://github.com/peng92055/smart-table" target="_blank"
+      rel="noopener noreferrer" class="repo-link">
+      GitHub</a></h1>
+  <div class="sidebar">
+    <p>表格类型：</p>
+    <p> <a href="#smartTable1">&bull;&nbsp;单表头</a></p>
+    <p> <a href="#smartTable1">&bull;&nbsp;单选</a></p>
+    <p> <a href="#smartTable1">&bull;&nbsp;排序</a></p>
+    <p> <a href="#smartTable2">&bull;&nbsp;多表头</a></p>
+    <p> <a href="#smartTable2">&bull;&nbsp;固定列</a></p>
+    <p> <a href="#smartTable2">&bull;&nbsp;多选</a></p>
+    <p> <a href="#smartTable3">&bull;&nbsp;树形表</a></p>
+    <p> <a href="#smartTable4">&bull;&nbsp;展开动态行</a></p>
+  </div>
+  <div class="container">
+    <div id="smartTable1">
+      <table stripe>
+        <thead>
+          <tr>
+            <th colspan="1" fixed sort>Id</th>
+            <th colspan="1" fixed sort>Logo</th>
+            <th colspan="1" width="200" fixed>日期</th>
+            <th colspan="1" width="100" sort>姓名</th>
+            <th colspan="1">省份（包含自治区）</th>
+            <th colspan="1" sort>市区</th>
+            <th colspan="1">地址</th>
+            <th colspan="1" width="95" fixed>邮编</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-01-03</td>
+            <td>1王小虎</td>
+            <td>1上海</td>
+            <td>2长宁区</td>
+            <td>3上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr unsort>
+            <td colspan="6">合计</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="smartTable2">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" rowspan="3" fixed sort="number">Id</th>
+            <th colspan="1" rowspan="3" width="240" sort fixed>日期</th>
+            <th colspan="5" rowspan="1" sort>配送信息</th>
+            <th colspan="1" rowspan="3" fixed>操作</th>
+          </tr>
+          <tr>
+            <th colspan="1" rowspan="2" width="280" sort>姓名</th>
+            <th colspan="4" rowspan="1" sort>地址</th>
+          </tr>
+          <tr>
+            <th colspan="1" rowspan="1">省份</th>
+            <th colspan="1" rowspan="1" width="240">市区</th>
+            <th colspan="1" rowspan="1" width="300">地址</th>
+            <th colspan="1" rowspan="1" sort>邮编</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>11</td>
+            <td>2020-05-02</td>
+            <td>王小虎2</td>
+            <td>上海2</td>
+            <td>长宁区2</td>
+            <td>上海市长宁区淞虹路888号2</td>
+            <td>200332</td>
+            <td><a href="#">查看2</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+            <td><a href="#">查看3</a></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>2020-01-03</td>
+            <td>小小虎1</td>
+            <td>上海1</td>
+            <td>长宁区1</td>
+            <td>上海市长宁区淞虹路888号1</td>
+            <td>200331</td>
+            <td><a href="#">查看1</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>2020-05-04</td>
+            <td>王小虎4</td>
+            <td>上海4</td>
+            <td>长宁区4</td>
+            <td>上海市长宁区淞虹路888号4</td>
+            <td>200334</td>
+            <td><a href="#">查看4</a></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>2020-01-03</td>
+            <td>小小虎1</td>
+            <td>上海1</td>
+            <td>长宁区1</td>
+            <td>上海市长宁区淞虹路888号1</td>
+            <td>200331</td>
+            <td><a href="#">查看1</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>2020-05-04</td>
+            <td>王小虎4</td>
+            <td>上海4</td>
+            <td>长宁区4</td>
+            <td>上海市长宁区淞虹路888号4</td>
+            <td>200334</td>
+            <td><a href="#">查看4</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="smartTable3">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" fixed width="200">Id</th>
+            <th colspan="1" width="200">日期</th>
+            <th colspan="1" width="100">姓名</th>
+            <th colspan="1">省份（包含自治区）</th>
+            <th colspan="1">市区</th>
+            <th colspan="1">地址</th>
+            <th colspan="1" width="95">邮编</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr expand="001">
+            <td>001</td>
+            <td>2020-05-02</td>
+            <td>王小虎2</td>
+            <td>上海2</td>
+            <td>长宁区2</td>
+            <td>上海市长宁区淞虹路888号2</td>
+            <td>200332</td>
+          </tr>
+          <tr expand-parent="001">
+            <td>001-1</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand="001-001" expand-parent="001">
+            <td>001-2</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand-parent="001-001">
+            <td>001-2-1</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand-parent="001-001">
+            <td>001-2-2</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand-parent="001">
+            <td>001-3</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand="999" expand-parent="999">
+            <td>999</td>
+            <td>2020-05-03</td>
+            <td>上小虎3</td>
+            <td>上海3</td>
+            <td>长宁区3</td>
+            <td>上海市长宁区淞虹路888号3</td>
+            <td>200333</td>
+          </tr>
+          <tr expand="002">
+            <td>002</td>
+            <td>2020-01-03</td>
+            <td>小小虎1</td>
+            <td>上海1</td>
+            <td>长宁区1</td>
+            <td>上海市长宁区淞虹路888号1</td>
+            <td>200331</td>
+          </tr>
+          <tr expand-parent="002">
+            <td>002-1</td>
+            <td>2020-05-04</td>
+            <td>王小虎4</td>
+            <td>上海4</td>
+            <td>长宁区4</td>
+            <td>上海市长宁区淞虹路888号4</td>
+            <td>200334</td>
+          </tr>
+          <tr expand-parent="002">
+            <td>002-2</td>
+            <td>2020-01-03</td>
+            <td>小小虎1</td>
+            <td>上海1</td>
+            <td>长宁区1</td>
+            <td>上海市长宁区淞虹路888号1</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>2020-05-04</td>
+            <td>王小虎4</td>
+            <td>上海4</td>
+            <td>长宁区4</td>
+            <td>上海市长宁区淞虹路888号4</td>
+            <td>200334</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="smartTable4">
+      <table stripe>
+        <thead>
+          <tr>
+            <th colspan="1" fixed sort>Id</th>
+            <th colspan="1" fixed sort>Logo</th>
+            <th colspan="1" width="200" fixed>日期</th>
+            <th colspan="1" width="100" sort>姓名</th>
+            <th colspan="1">省份（包含自治区）</th>
+            <th colspan="1" sort>市区</th>
+            <th colspan="1">地址</th>
+            <th colspan="1" width="95" fixed>邮编</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-01-03</td>
+            <td>1王小虎</td>
+            <td>1上海</td>
+            <td>2长宁区</td>
+            <td>3上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-02-03</td>
+            <td>2王小虎</td>
+            <td>3上海</td>
+            <td>4长宁区</td>
+            <td>2上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><img src="./assets/js-table.png" /></td>
+            <td>2020-03-03</td>
+            <td>3王小虎</td>
+            <td>4上海</td>
+            <td>1长宁区</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+          <tr unsort>
+            <td colspan="6">合计</td>
+            <td>6上海市长宁区淞虹路888号</td>
+            <td>200331</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    new SmartTable({
+      selector: '#smartTable1',
+      height: 320,
+      selection: 'radio'
+    })
+    new SmartTable({
+      selector: '#smartTable2',
+      align: 'left',
+      height: 320,
+      size: 'middle',
+      align: 'center',
+      selection: 'checkbox',
+      selectionKey: 1,
+    })
+    new SmartTable({
+      selector: '#smartTable3',
+      align: 'left',
+      expand: true,
+      defaultExpandAll: true
+    })
+    new SmartTable({
+      selector: '#smartTable4',
+      height: 320,
+      expandCallback: function (slot, value) {
+        setTimeout(function () {
+          var content = "<span>我是展开内容第一次,当前展开的值为：" + value + "</span>"
+          slot.open(content, true)
+
+          var content2 = document.createElement("span")
+          content2.innerText = "我是展开内容第二次,当前展开的值为：" + value
+          slot.open(content2)
+        }, 2000)
+      }
+    })
+  </script>
+
+</body>
+
+</html>
